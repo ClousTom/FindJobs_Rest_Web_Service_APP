@@ -22,9 +22,9 @@ public class Lavori {
 	
 	
 	//costruttore oggetto
-	public Lavori() {
-		super();
-	}
+//	public Lavori() {      USATA SOLO PER L'EREDITARIETA', da eliminare nel caso non si usano superclassi
+//		super();
+//	}
 	
 	//costruttore dell'oggetto id
 	
@@ -37,20 +37,11 @@ public class Lavori {
 		this.date_posted=null;
 		this.keywords=null;
 		this.source=null;
+		
 	
 	}
-	//costruttore dell'oggetto lavori
-	
-	public Lavori(String company_name) {
-		this.id=0;
-		this.company_name=company_name;
-		this.location=null;
-		this.remote=false;
-		this.text=null;
-		this.date_posted=null;
-		this.keywords=null;
-		this.source=null;
-	}
+
+//costruttore dell'oggetto location
 	
 	public Lavori(String location) {
 		this.id=0;
@@ -63,11 +54,64 @@ public class Lavori {
 		this.source=null;
 	}
 	
+//costruttore dell'oggetto keywords
+	
+	public Lavori( Vector<String> keywords) {
+	this.id=0;
+	this.company_name=null;
+	this.location=null;
+	this.remote=false;
+	this.text=null;
+	this.date_posted=null;
+	this.keywords=keywords;
+	this.source=null;
+}
+	
+//costruttore degli oggetti remote e source	
+	public Lavori(boolean remote,String source ) {
+		this.id=0;
+		this.company_name=null;
+		this.location=null;
+		this.remote=remote;
+		this.text=null;
+		this.date_posted=null;
+		this.keywords=null;
+		this.source=source;
+	}
+	
+	
+//costruttore degli oggetti date_posted e source	
+	public Lavori(String date_posted,String source ) {
+		this.id=0;
+		this.company_name=null;
+		this.location=null;
+		this.remote=false;
+		this.text=null;
+		this.date_posted=date_posted;
+		this.keywords=null;
+		this.source=source;
+	}
+	
+	
+//costruttore completo con tutti gli oggetti della classe lavori	
+	public Lavori(long id, String company_name,String location, boolean remote,String text,String date_posted,Vector<String> keywords,String source) {
+		this.id=id;
+		this.company_name=company_name;
+		this.location=location;
+		this.remote=remote;
+		this.text=text;
+		this.date_posted=date_posted;
+		this.keywords=keywords;
+		this.source=source;
+	}
 	
 	
 	
 	
-	//getters e setters della classe
+	
+
+
+	//getters e setters della classe lavori
 	public long getId() {
 		return id;
 	}

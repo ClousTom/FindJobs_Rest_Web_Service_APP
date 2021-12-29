@@ -9,9 +9,7 @@ import it.progetto.FIndJobs.model.*;
 public class FIndJobsApplication {
 
 	public static void main(String[] args) throws Exception {
-		
 		SpringApplication.run(FIndJobsApplication.class, args);
-		CollegamentoApiKey.link();
+		CollegamentoApiKey.start();
 	}
-
 }

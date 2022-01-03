@@ -30,5 +30,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/claud/Documents/GitHub/Progetto-prog-a-oggetti/FIndJobs/libraries/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LeoTh/OneDrive/Desktop/Università/Programmazione ad oggetti/librerie/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

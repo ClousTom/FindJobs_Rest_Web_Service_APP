@@ -36,7 +36,7 @@ public class Filters {
 	
 	public static String Language (Lavori[] x, String Lang){
 		String risp="";
-		for(int i=0;i<5000;i++) {
+		for(int i=0;i<6300;i++) {
 			if(x[i].isLang(Lang)) {
 				risp = risp + x[i].toString();
 			}

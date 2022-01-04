@@ -156,7 +156,7 @@ public class Lavori {
 	
 	public boolean isLang(String lang) {
 		for (int i=0;i<keywords.size();i++) {
-			if(keywords.get(i).equals(lang)) { return true;	
+			if(keywords.get(i).toLowerCase().equalsIgnoreCase(lang.toLowerCase())) { return true;	
 			}
 		}
 		if (text.contains(lang)) { return true;

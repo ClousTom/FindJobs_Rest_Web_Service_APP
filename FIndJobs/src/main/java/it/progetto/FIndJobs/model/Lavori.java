@@ -151,20 +151,21 @@ public class Lavori {
 		if (this.location==null) {
 			return false;
 		}
-		return location.equals(city);
+		return location.contains(city);
 	}
 	
 	public boolean isLang(String lang) {
-		for (String x: keywords) {
-			if(x.equals(lang)) return true;	
+		for (int i=0;i<keywords.size();i++) {
+			if(keywords.get(i).equals(lang)) { return true;	
+			}
 		}
-		if (text.contains(lang)) return true;
-		
-		return false;
+		if (text.contains(lang)) { return true;
+		} else { return false;
+		}	
 	}
 	
 	static String GetAllKeywords() {
-		String keyw=null;
+		String keyw="";
 		for(int i=0;i<keywords.size();i++) {
 			if(i==keywords.size()-1) {
 				keyw=keyw+keywords.get(i);	
@@ -177,19 +178,19 @@ public class Lavori {
 	
 	public String toString() {
 		return "{"+"\n"+
-				"[Id:" + getId() +",\n"+
-				"Role:" + getRole() +",\n"+
-				"Company name:" + getCompany_name()+",\n"+			
-				"Company number of employees:" + getCompany_num_employees() + ",\n"+
-				"Employment type:"+ getEmployment_type() +",\n"+ 
-				"Location:" + getLocation() + ",\n"+
-				"Remote:" + isRemote()+",\n"+ 
-				"Logo:" + getLogo() +",\n"+
-				"Url:" + getUrl() + ",\n"+
-				"Text:" + getText()+",\n"+
-				"Date posted:" + getDate_posted() + ",\n"+
-				"Keywords:" + GetAllKeywords() + ",\n"+
-				"Source:"+ getSource() + ",\n"
+				"Id:" + getId() +"\n"+
+				"Role:" + getRole() +"\n"+
+				"Company name:" + getCompany_name()+"\n"+			
+				"Company number of employees:" + getCompany_num_employees() + "\n"+
+				"Employment type:"+ getEmployment_type() +"\n"+ 
+				"Location:" + getLocation() + "\n"+
+				"Remote:" + isRemote()+"\n"+ 
+				"Logo:" + getLogo() +"\n"+
+				"Url:" + getUrl() + "\n"+
+				"Text:" + getText()+"\n"+
+				"Date posted:" + getDate_posted() + "\n"+
+				"Keywords:" + GetAllKeywords() + "\n"+
+				"Source:"+ getSource() + "\n"
 				+"}\n";
 	}
 

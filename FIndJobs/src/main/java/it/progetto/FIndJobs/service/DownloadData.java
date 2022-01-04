@@ -25,7 +25,7 @@ public class DownloadData {
             JSONArray temp = (JSONArray) data_obj.get("results");
 			Data.addAll(temp);
 			
-			if (data_obj.get("next") != null) {
+			if (data_obj.get("next") == null) {
 				System.out.println();
 				System.out.println("Scansionate "+countPag+" pagine. Trovate "+Data.size()+" offerte di lavoro.");
 				return Data;

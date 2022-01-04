@@ -13,7 +13,7 @@ public class controller {
 	
 	String risp;
 
-	@GetMapping("/prova/nome/{CityName}")
+	@GetMapping("/city/{CityName}")
 	public ResponseEntity<Object> RicercaPerCitta(@PathVariable String CityName) {
 		
 		risp = Scanner.SearchCity(CityName);
@@ -21,7 +21,7 @@ public class controller {
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
 	
-	@GetMapping("/prova/nome/{Language}")
+	@GetMapping("/linguaggio/{Language}")
 	public ResponseEntity<Object> RicercaPerLinguaggio(@PathVariable String Language) {
 		
 		risp = Scanner.SearchLanguage(Language);
@@ -29,7 +29,7 @@ public class controller {
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
 	
-	@GetMapping("/prova/nome/{Online}")
+	@GetMapping("remoto/{Online}")
 	public ResponseEntity<Object> RicercaLavoriInRemoto(@PathVariable String Online) {
 		
 		risp = Scanner.SearchRemoteJobs();

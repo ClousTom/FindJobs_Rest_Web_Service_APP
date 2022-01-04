@@ -3,6 +3,7 @@ package it.progetto.FIndJobs.model;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Vector;
 import java.net.HttpURLConnection;
 
 import org.json.simple.JSONArray;
@@ -23,11 +24,9 @@ import org.json.simple.parser.JSONParser;
 	            JSONObject data_obj = (JSONObject) parse.parse(line);
 				
 	            JSONArray temp = (JSONArray) data_obj.get("results");
-//	            System.out.println("Nuovo array: "+temp.get(1));
 				Data.addAll(temp);
 				
-				
-				if (data_obj.get("next") == null) {
+				if (data_obj.get("next") != null) {
 					System.out.println();
 					System.out.println("Scansionate "+countPag+" pagine. Trovate "+Data.size()+" offerte di lavoro.");
 					return Data;
@@ -37,7 +36,7 @@ import org.json.simple.parser.JSONParser;
 							if (countPag==20 || countPag==40 || countPag==60) {
 						    System.out.println();
 						    System.out.println("Scansionate "+countPag+" pagine...");
-							Thread.sleep(8000);
+							Thread.sleep(10000);
 						    Data = connect(Data, url, countPag);
 						  } else {
 //							Thread.sleep(500);
@@ -74,13 +73,25 @@ import org.json.simple.parser.JSONParser;
 
 		
 		public static void start() throws Exception{
+			
 			URL url = new URL("https://findwork.dev/api/jobs");
+			
 			System.out.println();
 			System.out.println("Inizio la scansione delle offerte di lavoro sulla pagina web: "+url);
+			
 			JSONArray Data = new JSONArray();
 			int countPag = 0;
 			Data = connect(Data,url,countPag);
-
+			
+			Lavori[] x = new Lavori[Data.size()];
+			x = parseData.pData(Data, x);
+//			System.out.println(x[0].toString());
+			
+//			Filters.RemoteJobs(x);
+//			Filters.NoRemoteJobs(x);
+//			Filters.CitySearch(x);
+//			Filters.LanguageSearch(x);
+			
 		}	
 }
 	

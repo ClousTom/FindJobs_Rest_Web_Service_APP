@@ -1,11 +1,11 @@
 package it.progetto.FIndJobs.model;
-
+import java.lang.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Vector;
 import java.net.HttpURLConnection;
-
+import 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -92,7 +92,19 @@ import org.json.simple.parser.JSONParser;
 //			Filters.CitySearch(x);
 //			Filters.LanguageSearch(x);
 			
-		}	
+		}
+		
+		
+		//funzione per junit test
+//		public static void ImmettereLink(String s) {
+//			if (s==null) throw new NullPointerException("Immettere il link nella classe CollegamentoApiKey!");
+//		}
+		
+		
+		
+		
+		
+		
 }
 	
     

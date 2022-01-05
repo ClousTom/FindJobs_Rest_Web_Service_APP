@@ -1,6 +1,13 @@
 package it.progetto.FIndJobs.model;
 import java.util.Vector;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 public class Filters {
 
 	public static void RemoteJobs (Lavori[] x){

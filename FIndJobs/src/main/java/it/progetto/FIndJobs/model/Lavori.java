@@ -4,10 +4,13 @@ import java.util.Vector;
 //import javax.lang.model.element.VariableElement;
 //import javax.tools.Diagnostic;
 
-/** Questa classe descrive le proprietà e varie info di ogni lavoro
+/**
  * 
- * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
  */
+
 
 public class Lavori {
 	

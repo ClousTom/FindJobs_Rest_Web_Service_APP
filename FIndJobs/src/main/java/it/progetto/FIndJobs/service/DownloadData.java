@@ -10,6 +10,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 public class DownloadData {
 
 	public static JSONArray getData(JSONArray Data, HttpURLConnection urlConn, int countPag){

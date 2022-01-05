@@ -7,6 +7,13 @@ import org.json.simple.JSONObject;
 
 import it.progetto.FIndJobs.model.Lavori;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 public class parseData {
 	
 	public static Vector<String> keywords(JSONObject obj){

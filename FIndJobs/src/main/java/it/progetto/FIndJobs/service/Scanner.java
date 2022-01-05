@@ -10,6 +10,13 @@ import org.springframework.web.server.ResponseStatusException;
 import it.progetto.FIndJobs.model.Lavori;
 import it.progetto.FIndJobs.service.*;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 public class Scanner {
 	
     static JSONArray Data = new JSONArray();

@@ -16,6 +16,13 @@ import it.progetto.FIndJobs.*;
 import it.progetto.FIndJobs.model.Lavori;
 import it.progetto.FIndJobs.model.CollegamentoApiKey;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 	class testCollegamentoApiKey {
 
 	

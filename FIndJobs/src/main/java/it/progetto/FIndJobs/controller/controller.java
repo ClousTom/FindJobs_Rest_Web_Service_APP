@@ -8,11 +8,57 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.progetto.FIndJobs.service.*;
 
+/**
+ * In questa classe è presente il RestController, che gestisce ogni singola rotta immessa
+ * dal client e facendo le dovute chiamate delle funzioni dalla classe Scanner, 
+ * permette la comunicazione tra client e server. 
+ * 
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 @RestController
 public class controller {
 	
 	String risp;
+	
+    /**
+     * Rotta di tipo GET che consiglia al Client delle città e dei linguaggi di programmazione su cui fare
+     * le ricerche.
+     * 
+     * @return Una stringa con dei consigli per effettuare le ricerche.
+     */
+	
+	@GetMapping("/help")
+	public ResponseEntity<Object> Suggerimento() {
+		
+		risp = "FindJobs! L'applicazione rest per cercare il lavoro che fa per te! \n"
+				+ "Utilizza la struttura delle rotte come indicato su GitHub. \n"
+				+ "Ecco dei suggerimenti su delle città che puoi cercare: \n"
+				+ "-> London \n"
+				+ "-> Seattle \n"
+				+ "-> Tokyo \n"
+				+ "-> NYC \n"
+				+ "-> Boston \n"
+				+ "-> San Francisco \n"
+				+ "Inoltre ecco dei suggerimenti sui linguaggi di programmazione che puoi cercare: \n"
+				+ "-> JavaScript \n"
+				+ "-> Python \n"
+				+ "-> github \n";
+		
+		return new ResponseEntity<> (risp, HttpStatus.OK);
+	}
+	
+    /**
+     * Rotta di tipo GET che, presa in ingresso una città, restituisce tutte le offerte di lavoro di aziende 
+     * che operano in tali città.
+     * 
+     * 
+	* @param CityName Nome della città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano in quella città richiesta dal client.	
+	*/
 
+	
 	@GetMapping("/city/{CityName}")
 	public ResponseEntity<Object> RicercaPerCitta(@PathVariable String CityName) {
 		
@@ -174,25 +220,7 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 	
-	@GetMapping("/help")
-	public ResponseEntity<Object> Suggerimento() {
-		
-		risp = "FindJobs! L'applicazione rest per cercare il lavoro che fa per te! \n"
-				+ "Utilizza la struttura delle rotte come indicato su GitHub. \n"
-				+ "Ecco dei suggerimenti su delle città che puoi cercare: \n"
-				+ "-> London \n"
-				+ "-> Seattle \n"
-				+ "-> Tokyo \n"
-				+ "-> NYC \n"
-				+ "-> Boston \n"
-				+ "-> San Francisco \n"
-				+ "Inoltre ecco dei suggerimenti sui linguaggi di programmazione che puoi cercare: \n"
-				+ "-> JavaScript \n"
-				+ "-> Python \n"
-				+ "-> github \n";
-		
-		return new ResponseEntity<> (risp, HttpStatus.OK);
-	}
+
 	
 	//fine modifiche
 }

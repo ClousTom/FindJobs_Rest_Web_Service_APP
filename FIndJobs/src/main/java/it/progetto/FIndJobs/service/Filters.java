@@ -2,6 +2,13 @@ package it.progetto.FIndJobs.service;
 
 import it.progetto.FIndJobs.model.Lavori;
 
+/**
+ * 
+ *
+ * @author Leonardo Pescetti
+ * @author Claudio Tomaiuolo
+ */
+
 public class Filters {
 
 //	public static String RemoteJobs (Lavori[] x){

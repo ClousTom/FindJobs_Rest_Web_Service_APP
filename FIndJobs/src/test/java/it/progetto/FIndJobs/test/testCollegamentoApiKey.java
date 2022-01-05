@@ -8,6 +8,7 @@ import java.net.URL;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ import it.progetto.FIndJobs.model.CollegamentoApiKey;
 		url2=new String("https://findwork.dev/api/jobss");
 	}
 
-	@Before
+	@BeforeAll
 	public void before() {
 		System.out.println("Inizio dei vari test...");
 	}

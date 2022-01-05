@@ -39,14 +39,35 @@ public class Scanner {
 		return ListaLavori;
 	}
 	
-	public static String SearchRemoteJobs() {
-		String ListaLavori = Filters.RemoteJobs(x);
+//	public static String SearchRemoteJobs() {
+//		String ListaLavori = Filters.RemoteJobs(x);
+//		return ListaLavori;
+//	}
+//	
+//	public static String SearchNoRemoteJobs() {
+//		String ListaLavori = Filters.NoRemoteJobs(x);
+//		return ListaLavori;
+//	}
+	
+	//inzio modifica
+	
+	public static String RemoteVerify(String IsRemote) {
+		String ListaLavori = Filters.IsRemoteOrNot(x, IsRemote);
+		return ListaLavori;
+	}
+	//fine modica
+	
+	//inizio modifica
+	
+	public static String CombinedSearch1(String Lang,String CityName) {
+		String ListaLavori=Filters.FilteredSearch1(x, Lang, CityName);
 		return ListaLavori;
 	}
 	
-	public static String SearchNoRemoteJobs() {
-		String ListaLavori = Filters.NoRemoteJobs(x);
+	public static String CombinedSearch2(String Lang,String CityName,String IsRemote) {
+		String ListaLavori=Filters.FilteredSearch2(x, Lang, CityName, IsRemote);
 		return ListaLavori;
 	}
 	
+	//fine modifica
 }

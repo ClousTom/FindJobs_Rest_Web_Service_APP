@@ -151,15 +151,15 @@ public class Lavori {
 		if (this.location==null) {
 			return false;
 		}
-		return location.contains(city);
+		return location.toLowerCase().contains(city.toLowerCase());
 	}
 	
 	public boolean isLang(String lang) {
 		for (int i=0;i<keywords.size();i++) {
-			if(keywords.get(i).toLowerCase().equalsIgnoreCase(lang.toLowerCase())) { return true;	
+			if(keywords.get(i).toLowerCase().contains(lang.toLowerCase())) { return true;	
 			}
 		}
-		if (text.contains(lang)) { return true;
+		if (text.toLowerCase().contains(lang.toLowerCase())) { return true;
 		} else { return false;
 		}	
 	}

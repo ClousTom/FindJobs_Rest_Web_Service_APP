@@ -214,7 +214,7 @@ public class Lavori {
 		return keyw;
 	}
 		
-	/*
+	/**
 	 * Metodo toString() che contiene la struttura che apparirà a schermo ed informerà il client 
 	 * del lavoro trovato.
 	 */

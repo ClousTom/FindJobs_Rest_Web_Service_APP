@@ -3,7 +3,7 @@ package it.progetto.FIndJobs.service;
 import it.progetto.FIndJobs.model.Lavori;
 
 /**
- * 
+ * Questa classe contiene tutti i vari filtri di ricerca richiesti dal client.
  *
  * @author Leonardo Pescetti
  * @author Claudio Tomaiuolo
@@ -11,6 +11,15 @@ import it.progetto.FIndJobs.model.Lavori;
 
 public class Filters {
 		
+	/**
+	 * Funzione che cerca una data location nei vari Lavori, e restituisce una stringa contenente tutti
+	 * i lavori che hanno la location richiesta dal client.
+	 *  
+	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
+	 * @param CityName Città per cui si sta effettuando la ricerca.
+	 * @return Stringa che contiene tutti i lavori che soddisfano la condizione di ricerca.
+	 */
+	
 	public static String City (Lavori[] x, String CityName){
 		String risp="";
 		for(int i=0;i<6000;i++) {
@@ -21,6 +30,16 @@ public class Filters {
 		return risp;
 	}
 	
+	/**
+	 * Funzione che cerca un dato linguaggio di programmazione nei vari Lavori, e restituisce
+	 * una stringa contenente tutti i lavori che utilizzano quel linguaggio di programmazione
+	 * richiesto dal client.
+	 *  
+	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
+	 * @param Lang Linguaggio di programmazione per cui si sta effettuando la ricerca.
+	 * @return Stringa che contiene tutti i lavori che soddisfano la condizione di ricerca.
+	 */
+	
 	public static String Language (Lavori[] x, String Lang){
 		String risp="";
 		for(int i=0;i<6000;i++) {
@@ -30,6 +49,15 @@ public class Filters {
 		}
 		return risp;
 	}
+	
+	/**
+	 * Funzione che cerca la tipologia di lavoro(distanza/presenza) nei vari Lavori, e restituisce
+	 * una stringa contenente tutti i lavori che operano con quella data modalità.
+	 *  
+	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
+	 * @param IsRemote Tipologia di lavoro per cui si sta effettuando la ricerca.
+	 * @return Stringa che contiene tutti i lavori che soddisfano la condizione di ricerca.
+	 */
 	
 	//inizio modifica
 	public static String IsRemoteOrNot(Lavori[] x, String IsRemote ){
@@ -48,10 +76,6 @@ public class Filters {
 		}											
 		return risp;			
 	}		
-	//fine modica
-	
-	
-	//inizio modifica
 	
 	public static String FilteredSearch1(Lavori[] x, String Lang, String CityName) {
 		String risp="";

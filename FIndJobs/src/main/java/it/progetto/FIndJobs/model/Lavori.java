@@ -5,7 +5,11 @@ import java.util.Vector;
 //import javax.tools.Diagnostic;
 
 /**
- * 
+ * Questa classe descrive le varie informazioni di ogni lavoro, tra cui l'identificativo univoco, il ruolo,
+ * la ragione sociale, il numero di dipendenti, il tipo di impiego, il luogo in cui si trova, la tipologia
+ * del lavoro(se lavora anche in remoto o solo in presenza), il link del logo, l'url del sito dell'azienda,
+ * un testo di presentazione dell'azienda, la data in cui è stato inserito l'annuncio, i linguaggi di
+ * programmazione utilizzati, e la sorgente in cui è pubblicato l'annuncio.
  *
  * @author Leonardo Pescetti
  * @author Claudio Tomaiuolo
@@ -28,6 +32,9 @@ public class Lavori {
 	static public Vector<String> keywords;
 	public String source;
 	
+	/**
+	 * Costruttore della classe Lavori.
+	*/
 	
 	public Lavori() {
 		this.id = 0;
@@ -45,6 +52,10 @@ public class Lavori {
 		this.source = null;
 	}
 
+	/**
+	 * Getter e setter vari della classe Lavori.
+	 */
+	
 	public long getId() {
 		return id;
 	}
@@ -150,12 +161,29 @@ public class Lavori {
 	}
 
 
+	/**
+	 * Questa funzione verifica che una città richiesta  si trovi all'interno della classe lavoro
+	 * verificando in Location. 
+	 * 
+	 * @param city Città che viene passata di cui si cerca un lavoro in tale località.
+	 * @return la località richiesta.
+	 */
+	
 	public boolean isCity(String city) {
 		if (this.location==null) {
 			return false;
 		}
 		return location.toLowerCase().contains(city.toLowerCase());
 	}
+	
+	/**
+	 * Questa funzione verifica che un linguaggio richiesto si trovi all'interno della classe lavoro
+	 * verificandolo sia in keywords che in text. 
+	 * 
+	 * @param lang Linguaggio di programmazione che viene passato di cui si cerca un lavoro 
+	 * che utilizzi quel linguaggio.
+	 * @return la località richiesta.
+	 */
 	
 	public boolean isLang(String lang) {
 		for (int i=0;i<keywords.size();i++) {
@@ -166,6 +194,14 @@ public class Lavori {
 		} else { return false;
 		}	
 	}
+	
+	/**
+	 * Lo scopo di questa funzione è quello di prendere tutti i lavori contenuti in keywords(che inizialmente
+	 * compaiono sotto forma di elenco), ed aggrupparli in un'unica stringa così da facilitare il lavoro
+	 * di ricerca.
+	 * 
+	 * @return Una stringa contenente tutti i lavori precedentemente situati in keywords.
+	 */
 	
 	static String GetAllKeywords() {
 		String keyw="";
@@ -178,6 +214,10 @@ public class Lavori {
 		return keyw;
 	}
 		
+	/*
+	 * Metodo toString() che contiene la struttura che apparirà a schermo ed informerà il client 
+	 * del lavoro trovato.
+	 */
 	
 	public String toString() {
 		return "{"+"\n"+

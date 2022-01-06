@@ -1,5 +1,7 @@
 package it.progetto.FIndJobs.controller;
 
+import javax.tools.Diagnostic;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,6 +69,15 @@ public class controller {
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
 	
+	/**
+     * Rotta di tipo GET che, preso in ingresso un linguaggio di programmazione, restituisce
+     * tutte le offerte di lavoro di aziende che lavorano con quei linguaggi di programmazione.
+     * 
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che utilizzano quel linguaggio richiesto dal client.	
+	*/
+	
 	@GetMapping("/language/{Language}")
 	public ResponseEntity<Object> RicercaPerLinguaggio(@PathVariable String Language) {
 		
@@ -91,6 +102,14 @@ public class controller {
 //		return new ResponseEntity<> (risp, HttpStatus.OK);
 //	}
 	
+	/**
+     * Rotta di tipo GET che, preso in ingresso true o false, restituisce se "true" la lista di lavori che 
+     * operano anche con il lavoro a distanza; mentre se "false" restituisce la lista di lavori che non operano
+     * con il lavoro a distanza.
+     * 
+	* @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+	* @return Lista di lavori di imprese che operano o meno(a seconda della scelta del client) a distanza.
+	*/	
 	//inizio modifiche
 	@GetMapping("/isremote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaLavoriInRemoto2(@PathVariable String TrueOrFalse) {
@@ -100,6 +119,16 @@ public class controller {
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
 	 
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione e una città, restituisce al
+     * client la lista di lavori che operano in quella città ed utilizzano quel linguaggio di programmazione.
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @param City1 Nome della città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano nella città scelta dal client, con quel linguaggio di
+	* programmazione scelto dal client.
+	*/
+	
 	@GetMapping("/search/language/{Language}/cities/{City1}")
 	public ResponseEntity<Object> RicercaCombinata1(@PathVariable String Language,@PathVariable String City1){
 		
@@ -108,6 +137,17 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 		
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione e 2 città, restituisce al
+     * client la lista di lavori che operano in tali città ed utilizzano quel linguaggio di programmazione.
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+	* @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+	* programmazione scelto dal client.
+	*/
+	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}")
 	public ResponseEntity<Object> RicercaCombinata2(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2){
@@ -117,15 +157,17 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 	
-//	@GetMapping("/search/lang/{Language}/cities/{City1}/{City2}/{City3}")
-//	public ResponseEntity<Object> RicercaCombinata3(@PathVariable String Language,@PathVariable String City1,
-//	@PathVariable String City2, @PathVariable String City3){
-//		
-//		risp=Scanner.CombinedSearch3(Language,City1,City2,City3);
-//		
-//		return new ResponseEntity<>(risp, HttpStatus.OK);
-//	}
-//	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione e 3 città, restituisce al
+     * client la lista di lavori che operano in tali città ed utilizzano quel linguaggio di programmazione.
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+	* @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+	* @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+	* programmazione scelto dal client.
+	*/
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}")
 	public ResponseEntity<Object> RicercaCombinata3(@PathVariable String Language,@PathVariable String City1,
@@ -137,6 +179,19 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione e 4 città, restituisce al
+     * client la lista di lavori che operano in tali città ed utilizzano quel linguaggio di programmazione.
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+	* @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+	* @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+	* @param City4 Nome della quarta città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+	* programmazione scelto dal client.
+	*/
+	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}")
 	public ResponseEntity<Object> RicercaCombinata4(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4){
@@ -146,6 +201,20 @@ public class controller {
 		
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
+	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione e 5 città, restituisce al
+     * client la lista di lavori che operano in tali città ed utilizzano quel linguaggio di programmazione.
+     * 
+	* @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+	* @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+	* @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+	* @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+	* @param City4 Nome della quarta città su cui si vogliono effettuare le ricerche.
+	* @param City5 Nome della quinta città su cui si vogliono effettuare le ricerche.
+	* @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+	* programmazione scelto dal client.
+	*/
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5}")
 	public ResponseEntity<Object> RicercaCombinata4(@PathVariable String Language,@PathVariable String City1,
@@ -159,9 +228,18 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 	
-	
-	
-	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione, una città e la tipologia
+     * di lavoro(se a distanza o meno, sempre scrivendo "true" o "false" nella rotta), restituisce al client
+     * la lista di lavori che operano in quella città, utilizzano quel linguaggio di programmazione e
+     * svolgono il lavoro in remoto o solo in presenza.
+     * 
+     * @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+     * @param City1 Nome della città su cui si vogliono effettuare le ricerche.
+     * @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+     * @return Lista di lavori di imprese che operano nella città scelta dal client, con quel linguaggio di
+     * programmazione scelto dal client e che operino nella modalità(distanza  o presenza) scelta dal client.
+     */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/remote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaCombinata5(@PathVariable String Language,@PathVariable String City1,
@@ -171,6 +249,20 @@ public class controller {
 		
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
+	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione, 2 città e la tipologia
+     * di lavoro(se a distanza o meno, sempre scrivendo "true" o "false" nella rotta), restituisce al client
+     * la lista di lavori che operano in quelle città, utilizzano quel linguaggio di programmazione e
+     * svolgono il lavoro in remoto o solo in presenza.
+     * 
+     * @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+     * @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+     * @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+     * @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+     * @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+     * programmazione scelto dal client e che operino nella modalità(distanza  o presenza) scelta dal client.
+     */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/remote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
@@ -182,6 +274,21 @@ public class controller {
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
 	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione, 3 città e la tipologia
+     * di lavoro(se a distanza o meno, sempre scrivendo "true" o "false" nella rotta), restituisce al client
+     * la lista di lavori che operano in quelle città, utilizzano quel linguaggio di programmazione e
+     * svolgono il lavoro in remoto o solo in presenza.
+     * 
+     * @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+     * @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+     * @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+     * @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+     * @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+     * @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+     * programmazione scelto dal client e che operino nella modalità(distanza  o presenza) scelta dal client.
+     */
+	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/remote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String TrueOrFalse){
@@ -192,6 +299,22 @@ public class controller {
 		
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
+	
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione, 4 città e la tipologia
+     * di lavoro(se a distanza o meno, sempre scrivendo "true" o "false" nella rotta), restituisce al client
+     * la lista di lavori che operano in quelle città, utilizzano quel linguaggio di programmazione e
+     * svolgono il lavoro in remoto o solo in presenza.
+     * 
+     * @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+     * @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+     * @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+     * @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+     * @param City4 Nome della quarta città su cui si vogliono effettuare le ricerche.
+     * @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+     * @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+     * programmazione scelto dal client e che operino nella modalità(distanza  o presenza) scelta dal client.
+     */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/remote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,

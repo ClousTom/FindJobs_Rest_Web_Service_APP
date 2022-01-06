@@ -54,6 +54,7 @@ public class controller {
     /**
      * Rotta di tipo GET che, presa in ingresso una città, restituisce tutte le offerte di lavoro di aziende 
      * che operano in tali città.
+     * Il risultato della ricerca sarà composto dai vari lavori che avranno la seguente struttura:
      * 
      * 
 	* @param CityName Nome della città su cui si vogliono effettuare le ricerche.
@@ -68,6 +69,26 @@ public class controller {
 		
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
+	
+   /** Si avrà una serie di risposte dal server strutturate nel modo seguente:
+	* {
+	*	Id:102905
+	*	Role:Senior Node.js Full-stack developer
+	*	Company name:Blueprint.store
+	*	Company number of employees:null
+	*	Employment type:null
+	*	Location:London, UK
+	*	Remote:true
+	*	Logo:null
+	*	Url:https://findwork.dev/102905/senior-nodejs-full-stack-developer-at-blueprintstore
+	*	Text:Salary depending on experience [...].
+	*	Date posted:2022-01-05T16:33:18Z
+	*	Keywords:redux, aws, gcp
+	*	Source:Hn
+	*	}	
+	*/
+	
+	
 	
 	/**
      * Rotta di tipo GET che, preso in ingresso un linguaggio di programmazione, restituisce
@@ -86,22 +107,6 @@ public class controller {
 		return new ResponseEntity<> (risp, HttpStatus.OK);
 	}
 	
-//	@GetMapping("/remote/{Online}")
-//	public ResponseEntity<Object> RicercaLavoriInRemoto(@PathVariable String Online) {
-//		
-//		risp = Scanner.SearchRemoteJobs();
-//		
-//		return new ResponseEntity<> (risp, HttpStatus.OK);
-//	}
-//	
-//	@GetMapping("/noremote/{NoOnline}")
-//	public ResponseEntity<Object> RicercaLavoriInLocale(@PathVariable String NoOnline) {
-//		
-//		risp = Scanner.SearchNoRemoteJobs();
-//		
-//		return new ResponseEntity<> (risp, HttpStatus.OK);
-//	}
-	
 	/**
      * Rotta di tipo GET che, preso in ingresso true o false, restituisce se "true" la lista di lavori che 
      * operano anche con il lavoro a distanza; mentre se "false" restituisce la lista di lavori che non operano
@@ -110,7 +115,7 @@ public class controller {
 	* @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
 	* @return Lista di lavori di imprese che operano o meno(a seconda della scelta del client) a distanza.
 	*/	
-	//inizio modifiche
+
 	@GetMapping("/isremote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaLavoriInRemoto2(@PathVariable String TrueOrFalse) {
 		
@@ -328,6 +333,23 @@ public class controller {
 		
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
+
+	/**
+     * Rotta di tipo GET, che presi in ingresso un linguaggio di programmazione, 5 città e la tipologia
+     * di lavoro(se a distanza o meno, sempre scrivendo "true" o "false" nella rotta), restituisce al client
+     * la lista di lavori che operano in quelle città, utilizzano quel linguaggio di programmazione e
+     * svolgono il lavoro in remoto o solo in presenza.
+     * 
+     * @param Language Nome del linguaggio di programmazione su cui si vogliono effettuare le ricerche.
+     * @param City1 Nome della prima città su cui si vogliono effettuare le ricerche.
+     * @param City2 Nome della seconda città su cui si vogliono effettuare le ricerche.
+     * @param City3 Nome della terza città su cui si vogliono effettuare le ricerche.
+     * @param City4 Nome della quarta città su cui si vogliono effettuare le ricerche.
+     * @param City5 Nome della quinta città su cui si vogliono effettuare le ricerche.
+     * @param TrueOrFalse Richiesta per la ricerca dei lavori a distanza o in presenza.
+     * @return Lista di lavori di imprese che operano nelle città scelte dal client, con quel linguaggio di
+     * programmazione scelto dal client e che operino nella modalità(distanza  o presenza) scelta dal client.
+     */	
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5}/remote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaCombinata9(@PathVariable String Language,@PathVariable String City1,
@@ -342,8 +364,4 @@ public class controller {
 		
 		return new ResponseEntity<>(risp, HttpStatus.OK);
 	}
-	
-
-	
-	//fine modifiche
 }

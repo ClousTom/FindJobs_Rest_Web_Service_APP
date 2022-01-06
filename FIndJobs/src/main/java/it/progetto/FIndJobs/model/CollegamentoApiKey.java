@@ -10,14 +10,27 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import it.progetto.FIndJobs.service.parseData;
+
 /**
- * 
+ * In questa classe sono presenti tutti i metodi che permettono il collegamento web con la pagina contentente
+ * l'elenco di tutti i lavori: "https://findwork.dev/api/jobs", effettua l'accesso all'API e posiziona tutti
+ * i lavori in un Array, che verrà utilizzato dopo dal controller per fare le richieste desiderate dal client
  *
  * @author Leonardo Pescetti
  * @author Claudio Tomaiuolo
  */
 
 	public class CollegamentoApiKey{
+		
+		/*
+		* 
+		* 
+		* 
+		* 
+		* @param 
+		* @return 	
+		*/
 		
 		public static JSONArray getData(JSONArray Data, HttpURLConnection urlConn, int countPag){
 			try {
@@ -56,6 +69,14 @@ import org.json.simple.parser.JSONParser;
 			return Data;
 		}
 		
+		/*
+		* Questa funzione effettua l'autenticazione API utilizzando 3 headers, il più importante è quello che
+		* contiene l'API KEY
+		*  
+		* @param 
+		* @return 	
+		*/
+		
 		public static JSONArray connect(JSONArray Data, URL url, int countPag) {
 			try {
 				HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
@@ -77,6 +98,14 @@ import org.json.simple.parser.JSONParser;
 			return Data;
 		}
 
+		/*
+		* 
+		* 
+		* 
+		* 
+		* @param 
+		* @return 	
+		*/
 		
 		public static void start() throws Exception{
 			
@@ -99,20 +128,11 @@ import org.json.simple.parser.JSONParser;
 //			Filters.LanguageSearch(x);
 			
 		}
-		
-		
+				
 		//funzione per junit test
 		
 //		public static void ImmettereLink(String s) {
 //			if (s==null) throw new NullPointerException("Immettere il link nella classe CollegamentoApiKey!");
 //		}
 		
-		
-		
-		
-		
-		
 }
-	
-    
-

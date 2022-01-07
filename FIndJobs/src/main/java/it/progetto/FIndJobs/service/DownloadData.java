@@ -10,15 +10,30 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-/**
- * 
- *
- * @author Leonardo Pescetti
- * @author Claudio Tomaiuolo
- */
+	/**
+	 * Lo scopo di questa classe è stabilire la connessione con la pagina:"https://findwork.dev/api/jobs/",
+	 * scarica i dati e crea il JSONArray contenente i dati.
+	 *
+	 * @author Leonardo Pescetti
+	 * @author Claudio Tomaiuolo
+	 */
 
 public class DownloadData {
 
+	/**
+	 * Questa funzione preso il JSONArray e l'url, scarica i dati dall'url e li mette in un buffer, li legge 
+	 * tutti e li inserisce in una stringa. Con un JSONParser separa tutte le stringhe mettendoli dentro un 
+	 * JSONObject. Quest'ultimo viene diviso(viene preso solo il campo results) e convertito in un JSONArray,
+	 * che verrà man a mano inserito all'interno di Data che contiene il Dataset completo.
+	 * Infine l'If viene utilizzato per determinare se si è arrivati alla fine della pagina, per poi stabilire 
+	 * la connessione con la pagina successiva utilizzando due funzioni ricorsive.
+	 * 
+	 * @param Data JSONArray da riempire.
+	 * @param urlConn URl da cui si effettuerà la connessione.
+	 * @param countPag contatore delle pagine.
+	 * @return JSONArray riempito.
+	 */
+	
 	public static JSONArray getData(JSONArray Data, HttpURLConnection urlConn, int countPag){
 		try {
 		
@@ -55,6 +70,15 @@ public class DownloadData {
      	}
 		return Data;
 	}
+	
+	/**
+	 * Questa funzione preso l'url iniziale si connette alla pagina, esegue l'autorizzazione con il Token API 
+	 * Key. Creato il collegamento questa funzione verrà utilizzata da GetData per acquisire tutto il Dataset.
+	 * 
+	 * @param Data Dataset contenente i lavori.
+	 * @param url URl della pagina da cui si vuole effettuare il download dei dati.
+	 * @param countPag Contatore delle pagine.
+	 */
 	
 	public static JSONArray connect(JSONArray Data, URL url, int countPag) {
 		try {

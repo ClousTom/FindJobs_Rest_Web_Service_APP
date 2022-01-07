@@ -12,8 +12,8 @@ import it.progetto.FIndJobs.model.Lavori;
 public class Filters {
 		
 	/**
-	 * Funzione che cerca una data location nei vari Lavori, e restituisce una stringa contenente tutti
-	 * i lavori che hanno la location richiesta dal client.
+	 * Funzione che effettua una ricerca in base ad una data location nei vari Lavori, e restituisce
+	 * una stringa contenente tutti i lavori che hanno la location richiesta dal client.
 	 *  
 	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
 	 * @param CityName Città per cui si sta effettuando la ricerca.
@@ -31,8 +31,8 @@ public class Filters {
 	}
 	
 	/**
-	 * Funzione che cerca un dato linguaggio di programmazione nei vari Lavori, e restituisce
-	 * una stringa contenente tutti i lavori che utilizzano quel linguaggio di programmazione
+	 * Funzione che effettua una ricerca in base ad un dato linguaggio di programmazione nei vari Lavori, 
+	 * e restituisce una stringa contenente tutti i lavori che utilizzano quel linguaggio di programmazione
 	 * richiesto dal client.
 	 *  
 	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
@@ -51,15 +51,14 @@ public class Filters {
 	}
 	
 	/**
-	 * Funzione che cerca la tipologia di lavoro(distanza/presenza) nei vari Lavori, e restituisce
-	 * una stringa contenente tutti i lavori che operano con quella data modalità.
+	 * Funzione che effettua una ricerca in base alla tipologia di lavoro(distanza/presenza) nei vari Lavori,
+	 * e restituisce una stringa contenente tutti i lavori che operano con quella data modalità.
 	 *  
 	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
 	 * @param IsRemote Tipologia di lavoro per cui si sta effettuando la ricerca.
 	 * @return Stringa che contiene tutti i lavori che soddisfano la condizione di ricerca.
 	 */
 	
-	//inizio modifica
 	public static String IsRemoteOrNot(Lavori[] x, String IsRemote ){
 		String risp="";
 		if(IsRemote.equals("true")){
@@ -77,6 +76,17 @@ public class Filters {
 		return risp;			
 	}		
 	
+	/**
+	 * Questa funzione effettua una ricerca combinata in base a due parametri passati che sono il linguaggio
+	 * di programmazione e una città desiderata, e restituisce una stringa contenente tutti i lavori che 
+	 * operano in tali città e che utilizzano quel linguaggio di programmazione chiesto dal client.
+	 *  
+	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
+	 * @param Lang Linguaggio di programmazione per cui si sta effettuando la ricerca.
+	 * @param CityName Città per cui si sta effettuando la ricerca.
+	 * @return Stringa che contiene tutti i lavori che soddisfano le condizioni di ricerca.
+	 */	
+	
 	public static String FilteredSearch1(Lavori[] x, String Lang, String CityName) {
 		String risp="";
 		for(int i=0;i<6000;i++) {
@@ -88,6 +98,19 @@ public class Filters {
 		}		
 		return risp;
 	}
+	
+	/**
+	 * Questa funzione effettua una ricerca combinata in base a tre parametri passati che sono il linguaggio
+	 * di programmazione, una città desiderata e la tipologia di lavoro(se opera solo in presenza o anche
+	 * in remoto) restituendo una stringa contenente tutti i lavori che operano in tali città, con quella 
+	 * modalità ed utilizzano quel linguaggio di programmazione chiesto dal client.
+	 *  
+	 * @param x E' l'array contenente tutti i lavori su cui si effettua la richiesta.
+	 * @param Lang Linguaggio di programmazione per cui si sta effettuando la ricerca.
+	 * @param CityName Città per cui si sta effettuando la ricerca.
+	 * @param IsRemote Tipologia di lavoro per cui si sta effettuando la ricerca.
+	 * @return Stringa che contiene tutti i lavori che soddisfano le condizioni di ricerca.
+	 */	
 	
 	public static String FilteredSearch2(Lavori[] x, String Lang, String CityName, String IsRemote) {
 		String risp="";
@@ -103,15 +126,10 @@ public class Filters {
 						if(!x[i].isRemote()) {
 							risp = risp + x[i].toString()+"\n";
 						}
-					}				
-					
+					}									
 				}				
 			}
 		}		
 		return risp;
-	}
-	
-	
-	//fine modifica
-	
+	}	
 }

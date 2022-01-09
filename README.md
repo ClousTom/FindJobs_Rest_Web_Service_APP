@@ -25,8 +25,21 @@ effettua richieste HTTP può effettuare diverse tipologie di ricerche tra i vari
 
 <a name="install"></a>
 ## Installazione e configurazione
+La nostra applicazione è facilmente installabile digitando nel promt dei comandi la seguente riga:
 
+```
+git clone https://github.com/S1078475/Progetto-prog-a-oggetti
 
+```
+O in alternativa utilizzando il seguente [link](https://github.com/S1078475/Progetto-prog-a-oggetti/archive/refs/heads/main.zip).
+
+Per avviarla sarà necessario avere un'ambiente di sviluppo per Java, come ad esempio Eclipse, installabile cliccando nel seguente [link](https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers).
+
+Una volta installato l'ambiente di sviluppo, ed importato correttamente il file come Maven Project, si può procedere con l'esecuzione del programma.
+
+Subito dopo l'avvio in console appariranno una serie di stampe che indicano che il programma è in esecuzione, e che sta scansionando le varie pagine dal sito https://findwork.dev/api/jobs/. Verrà mostrato l'avanzamento ogni 20 pagine e quando la scansione sarà terminata, verranno mostrati in console due valori: in numero totale delle pagine scansionate e il totale delle offerte di lavoro trovate(che sono in continuo aggiornamento nel sito da cui vengono attinte tali informazioni).
+
+Terminato ciò l'utente può effettuare le ricerche desiderate utilizzando un software che effettui richieste HTTP, come ad esempio [Postman](https://www.postman.com), immettendo le rotte che verranno spiegate in seguito. 
 
 
 <a name="rotte"></a>

@@ -154,15 +154,21 @@ Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmaz
 
 
 
+### Use Case Diagram
+
+
+![use-case](https://user-images.githubusercontent.com/93586306/148813744-6f84e152-9229-43a1-9bb2-f6e228015afa.png)
+
+### Class Diagram
+
+
+
 
 
 
 <a name="doc"></a>
 ## Documentazione
-
-
-
-
+La nostra applicazione è interamente documentata in Javadoc. Troverete i vari file html all'interno del progetto. 
 
 <a name="autor"></a>
 ## Autori del progetto :computer:

@@ -88,6 +88,9 @@ Source:Hn
 }
 
 ```
+L'utente potrà quindi inserire qualsiasi città esso desideri, purchè questa esista tra gli annunci di lavoro disponibili e sia scritta correttamente(indifferentemente se questa venga scritta in CAPS o meno). 
+
+![postman1](https://user-images.githubusercontent.com/93586306/148753050-8e58f07d-756a-4aef-a6d3-aa62f2113a84.png)
 
 
 

@@ -67,7 +67,7 @@ La prima rotta restituisce al client un semplice messaggio contenente al suo int
 
 <a name="2"></a>
 ## 2. /city/{CityName}
-La seconda rotta presa in ingresso una città, restituisce all'utente una stringa contenente tutte le offerte di lavoro di imprese che operano in quella città richiesta. All'interno dell offerta di lavoro saranno presenti diverse informazioni utili al client quali: il ruolo dell'azienda nel mercato, la ragione sociale, la località, l'url del sito web, un testo descrittivo, i linguaggi di programmazione utilizzati(situati in keywords), la data di inserimento dell'annuncio e se l'azienda opera anche in remoto o meno.
+La seconda rotta(di tipo GET) presa in ingresso una città, restituisce all'utente una stringa contenente tutte le offerte di lavoro di imprese che operano in quella città richiesta. All'interno dell offerta di lavoro saranno presenti diverse informazioni utili al client quali: il ruolo dell'azienda nel mercato, la ragione sociale, la località, l'url del sito web, un testo descrittivo, i linguaggi di programmazione utilizzati(situati in keywords), la data di inserimento dell'annuncio e se l'azienda opera anche in remoto o meno.
 
 Di seguito viene riportato un'esempio di offerta di lavoro che l'applicazione restituisce su postman: 
 ```
@@ -93,8 +93,42 @@ L'utente potrà quindi inserire qualsiasi città esso desideri, purchè questa e
 ![postman1](https://user-images.githubusercontent.com/93586306/148753050-8e58f07d-756a-4aef-a6d3-aa62f2113a84.png)
 
 
+<a name="3"></a>
+## 3. /language/{Language}
+La terza rotta(di tipo GET) prende in ingresso un linguaggio di programmazione e restituisce all'utente una stringa contenente tutte le offerte di lavoro di aziende informatiche che utilizzano quel linguaggio di programmazione richiesto. Anche in questo caso all'interno di ciascun offerta di lavoro saranno presenti diverse informazioni utili al client quali: il ruolo dell'azienda nel mercato, la ragione sociale, la località, l'url del sito web, un testo descrittivo, i linguaggi di programmazione utilizzati(situati in keywords), la data di inserimento dell'annuncio e se l'azienda opera anche in remoto o meno.
 
 
+Quindi l'utente potrà inserire qualsiasi linguaggio di programmazione esso desideri, purchè questo esista tra gli annunci di lavoro disponibili e sia scritto correttamente(indifferentemente se questo venga scritta in CAPS o meno).
+
+![postman2](https://user-images.githubusercontent.com/93586306/148761201-655ba870-b554-497e-b17a-c1648efbc0c9.png)
+
+
+<a name="4"></a>
+## 4. /isremote/{TrueOrFalse}
+
+La quarta rotta (di tipo GET) può prendere in ingresso **true** oppure **false**. Nel primo caso, se **true**, il programma restituirà al client una stringa contenente tutti quei lavori che oltre a lavorare in presenza operano anche a distanza in smartworking. Altrimenti se si digita **false** il programma restituirà al client una stringa contenente tutti quei lavori che non adoperano lo smartworking. 
+
+
+<a name="5"></a>
+## 5. /search/language/{Language}/cities/{City}
+La quinta rotta (di tipo GET) può prendere in ingresso sia un linguaggio di programmazione e sia una o più città per cui l'utente vuole cercare offerte di lavoro. Nel caso di un linguaggio e una città, il programma restituirà al client tutte le offerte di lavoro di aziende che operano in quella città scelta ed utilizzano quel linguaggio di programmazione. 
+
+Per effettuare ricerche per più di una città sarà necessario aggiungere uno slash e successivamente inserire il nome di un'altra città. Quindi l'utente potrà richiedere all'applicazione di effettuare ricerche combinate per un linguaggio e da 1 a 5 città diverse.
+
+ **Rotta** | **Descrizione**
+ ---------- | ------------
+ ` /search/language/{Language}/cities/{City} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione ed operano in una città.*
+ ` /search/language/{Language}/cities/{City1}/{City2} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione ed operano in due città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione ed operano in tre città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione ed operano in quattro città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5} ` |*Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione ed operano in cinque città.*
+ 
+Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmazione o qualsiasi città a suo piacimento, con la condizione che questi siano presenti tra le offerte di lavoro disponibili e siano scritti correttamente(il programma non tiene conto di input di maiuscole o minuscole).
+
+![postman3](https://user-images.githubusercontent.com/93586306/148765265-210a7c2c-6b54-421c-9f2f-cdc0dd89742f.png)
+
+ 
+ 
 <a name="uml"></a>
 ## Diagrammi UML
 

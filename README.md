@@ -52,12 +52,12 @@ Per poi proseguire digitando le seguenti rotte:
 
 **N°** | **Tipo** | **Rotta** | **Descrizione**
 ----- | ------------ | -------------------- | ----------------------
-[1](#1) | ` GET ` |  `/help` | *Questa rotta restituisce al client un messaggio contenente dei suggerimenti riguardo diverse città e linguaggi di programmazione da utilizzare nelle ricerche delle offerte di lavoro.*
-[2](#2) | ` GET ` | `/city/{CityName}` | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
-[3](#3) | ` GET ` | `/language/{Language}` | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che utilizzano quel linguaggio di programmazione inserito nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
-[4](#4) | ` GET ` | `/isremote/{TrueOrFalse}` | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano in remoto o no, in base a ciò che si è scritto nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
-[5](#5) | ` GET ` | `/search/language/{Language}/cities/{City}` | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita in input dal client e che utilizzano quel linguaggio di programmazione richiesto. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili. La ricerca potrà essere estesa fino a 5 città diverse.*
-[6](#6) | ` GET ` | `/search/language/{Language}/cities/{City}/remote/{TrueOrFalse}` | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita in input dal client, che utilizzano quel linguaggio di programmazione e che operano o meno in smartworking. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili. La ricerca potrà essere estesa fino a 5 città diverse.*
+[1](#1) | ` GET ` |  [`/help`](#1) | *Questa rotta restituisce al client un messaggio contenente dei suggerimenti riguardo diverse città e linguaggi di programmazione da utilizzare nelle ricerche delle offerte di lavoro.*
+[2](#2) | ` GET ` | [`/city/{CityName}`](#2) | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
+[3](#3) | ` GET ` | [`/language/{Language}`](#3) | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che utilizzano quel linguaggio di programmazione inserito nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
+[4](#4) | ` GET ` | [`/isremote/{TrueOrFalse}`](#4) | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano in remoto o no, in base a ciò che si è scritto nella rotta. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili.*
+[5](#5) | ` GET ` | [`/search/language/{Language}/cities/{City}`](#5) | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita in input dal client e che utilizzano quel linguaggio di programmazione richiesto. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili. La ricerca potrà essere estesa fino a 5 città diverse.*
+[6](#6) | ` GET ` | [`/search/language/{Language}/cities/{City}/remote/{TrueOrFalse}`](#6) | *Questa rotta restituisce una stringa contenente tutte le offerte di lavoro di aziende che operano nella città inserita in input dal client, che utilizzano quel linguaggio di programmazione e che operano o meno in smartworking. Per ogni offerta di lavoro trovata verranno mostrate diverse informazioni utili. La ricerca potrà essere estesa fino a 5 città diverse.*
 
 Per effettuare le richieste con successo bisgona assicurarsi che esse siano di tipo GET, altrimenti si riceverà un messaggio di errore. Di seguito verranno spiegate le varie rotte con alcuni esempi.
 
@@ -127,8 +127,28 @@ Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmaz
 
 ![postman3](https://user-images.githubusercontent.com/93586306/148765265-210a7c2c-6b54-421c-9f2f-cdc0dd89742f.png)
 
+ <a name="6"></a>
+## 6. /search/language/{Language}/cities/{City}/remote/{TrueOrFalse}
+ La sesta ed ultima rotta(sempre di tipo GET) può prendere in ingresso un linguaggio di programmazione, la tipologia di lavoro(se l'azienda opera o meno anche in remoto) e una o più differenti città(fino a 5) per cui sono pubblicati gli annunci di lavoro. Nel caso vengano digitati un linguaggio, una città e **true** o **false**(alla voce "remote"), il programma restituirà al client tutte le offerte di lavoro di aziende che operano in quella città scelta, utilizzano quel linguaggio di programmazione ed operano o meno in smartworking. 
+ 
+ ![postman4](https://user-images.githubusercontent.com/93586306/148790360-ba2e6a62-7fb6-4460-b624-075e438c3ac0.png)
+
+
+ Per effettuare ricerche per più di una città sarà necessario aggiungere uno slash(dopo l'ultima città digitata) e successivamente inserire il nome di un'altra città. Quindi l'utente potrà richiedere all'applicazione di effettuare ricerche combinate per un linguaggio, lavoro remoto o non e da 1 a 5 città diverse.
+ 
+  **Rotta** | **Descrizione**
+ ---------- | ------------
+ ` /search/language/{Language}/cities/{City}/remote/{TrueOrFalse} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione,operando in remoto o non ed operano in una città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/remote/{TrueOrFalse} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione,operando in remoto o non ed operano in due città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3}/remote/{TrueOrFalse} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione,operando in remoto o non ed operano in tre città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/remote/{TrueOrFalse} ` | *Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione,operando in remoto o non ed operano in quattro città.*
+ ` /search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5}/remote/{TrueOrFalse} ` |*Rotta che il client può utilizzare per cercare offerte di lavoro di aziende che utilizzano un linguaggio di programmazione,operando in remoto o non ed operano in cinque città.*
  
  
+ Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmazione o qualsiasi città a suo piacimento, con la condizione che questi siano presenti tra le offerte di lavoro disponibili e siano scritti correttamente(il programma non tiene conto di input di maiuscole o minuscole).
+ 
+![postman5](https://user-images.githubusercontent.com/93586306/148790966-c9a006c5-06fe-4880-818b-c74838b31a1d.png)
+
 <a name="uml"></a>
 ## Diagrammi UML
 

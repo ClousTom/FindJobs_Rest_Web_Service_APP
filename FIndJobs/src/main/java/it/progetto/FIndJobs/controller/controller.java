@@ -222,7 +222,7 @@ public class controller {
 	*/
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5}")
-	public ResponseEntity<Object> RicercaCombinata4(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata5(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5){
 		
@@ -247,7 +247,7 @@ public class controller {
      */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/remote/{TrueOrFalse}")
-	public ResponseEntity<Object> RicercaCombinata5(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
 			@PathVariable String TrueOrFalse){
 		
 		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse);
@@ -270,7 +270,7 @@ public class controller {
      */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/remote/{TrueOrFalse}")
-	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String TrueOrFalse){
 		
 		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
@@ -295,7 +295,7 @@ public class controller {
      */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/remote/{TrueOrFalse}")
-	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String TrueOrFalse){
 		
 		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
@@ -322,7 +322,7 @@ public class controller {
      */
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/remote/{TrueOrFalse}")
-	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata9(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4
 	,@PathVariable String TrueOrFalse){
 		
@@ -352,7 +352,7 @@ public class controller {
      */	
 	
 	@GetMapping("/search/language/{Language}/cities/{City1}/{City2}/{City3}/{City4}/{City5}/remote/{TrueOrFalse}")
-	public ResponseEntity<Object> RicercaCombinata9(@PathVariable String Language,@PathVariable String City1,
+	public ResponseEntity<Object> RicercaCombinata10(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5,@PathVariable String TrueOrFalse){
 		

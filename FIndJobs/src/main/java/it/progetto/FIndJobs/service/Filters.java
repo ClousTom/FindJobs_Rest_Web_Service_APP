@@ -134,6 +134,36 @@ public class Filters {
 		return risp;
 	}
 	
+	//FUNZIONE APPENA CREATA
+	
+	public static String FilteredSearch3(Lavori[] x, String Lang, String CityName, String CityName2) {
+		String risp="";
+		for(int i=0;i<x.length;i++) {
+			if(x[i].isCity(CityName)){
+				if(x[i].isLang(Lang)){
+					risp=risp+x[i].toString();
+				}				
+			}
+		}
+		for(int i=0;i<x.length;i++) {
+			if(x[i].isCity(CityName2)){
+				if(x[i].isLang(Lang)){
+					risp=risp+x[i].toString();
+				}				
+			}
+		}
+		return risp;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Questa funzione effettua una ricerca combinata in base a tre parametri passati che sono il linguaggio
 	 * di programmazione, una città desiderata e la tipologia di lavoro(se opera solo in presenza o anche

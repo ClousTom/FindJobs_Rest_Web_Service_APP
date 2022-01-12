@@ -156,7 +156,8 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata2(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2){
 		
-		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2);
+		//answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2);
+		answer=Scanner.CombinedSearch3(Language, City1, City2);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}

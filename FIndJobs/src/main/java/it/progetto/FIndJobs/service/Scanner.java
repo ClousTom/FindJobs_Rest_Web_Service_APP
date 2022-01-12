@@ -96,7 +96,7 @@ public class Scanner {
 		return ListaLavori;
 	}
 	
-	/*
+	/**
 	 * Questa funzione(che viene poi invocata dal RestController), prese in ingresso due stringhe contenenti
 	 * il linguaggio di programmazione e la città che l'utente vuole cercare, ha lo scopo di lanciare la
 	 * funzione FilteredSearch dalla classe lavori(che con l'equals restituirà l'oggetto Lavoro che opera
@@ -113,6 +113,21 @@ public class Scanner {
 		return ListaLavori;
 	}
 	
+	
+	//FUNZIONE APPENA CREATA
+	public static String CombinedSearch3(String Lang,String CityName,String CityName2) {
+		String ListaLavori=Filters.FilteredSearch3(x, Lang, CityName,CityName2);
+		return ListaLavori;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Questa funzione(che viene poi invocata dal RestController), prese in ingresso tre stringhe contenenti
 	 * sia il linguaggio di programmazione sia la città che l'utente vuole cercare e sia la tipologia
@@ -127,7 +142,7 @@ public class Scanner {
 	 * @return Lista dei lavori che soddisfano tali condizioni di ricerca.
 	 */
 	
-	public static String CombinedSearch2(String Lang,String CityName,String IsRemote) {
+public static String CombinedSearch2(String Lang,String CityName,String IsRemote) {
 		String ListaLavori=Filters.FilteredSearch2(x, Lang, CityName, IsRemote);
 		return ListaLavori;
 	}

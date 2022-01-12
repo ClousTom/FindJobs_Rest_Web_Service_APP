@@ -138,21 +138,41 @@ public class Filters {
 	
 	public static String FilteredSearch3(Lavori[] x, String Lang, String CityName, String CityName2) {
 		String risp="";
+		int count1=0;
+		int count2=0;
+		int countRemote=0;
+		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
+					count1++;
 					risp=risp+x[i].toString();
+					if(x[i].isRemote()) {
+						countRemote++;
+					}
+					else if(!x[i].isRemote()) {
+						countNoRemote++;
+					}
 				}				
 			}
-		}
-		for(int i=0;i<x.length;i++) {
-			if(x[i].isCity(CityName2)){
+			else if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
+					count2++;
 					risp=risp+x[i].toString();
+					if(x[i].isRemote()) {
+						countRemote++;
+					}
+					else if(!x[i].isRemote()) {
+						countNoRemote++;
+					}
 				}				
 			}
 		}
-		return risp;
+		return "Trovati "+count1+" offerte di lavoro a "+CityName+" e "+count2+" a "+CityName2+" con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali.\n"
+				+ "In remoto: "+countRemote+";\n"
+				+ "In presenza: "+countNoRemote+";\n"
+				+ "Non specificato: "+((count1+count2)-countRemote-countNoRemote)+"\n"
+				+ risp;
 	}
 	
 	

@@ -26,8 +26,7 @@ public class Scanner {
 	 */
 	
     static JSONArray Data = new JSONArray();
-	static Lavori[] x;
-//	static Vector<Lavori> lavoro = new Vector<Lavori>();
+	static Lavori[] lavori;
 	
 	/**
 	 * Questa funzione ha lo scopo di inizializzare la connessione nella pagina:"https://findwork.dev/api/jobs".
@@ -47,8 +46,8 @@ public class Scanner {
 		
 		int countPag = 0;
 		Data = DownloadData.connect(Data,url,countPag);
-		x = new Lavori[Data.size()];
-		x = parseData.pData(Data, x);
+		lavori = new Lavori[Data.size()];
+		lavori = parseData.pData(Data, lavori);
 	}
 	
 	/**
@@ -62,7 +61,7 @@ public class Scanner {
 	 */
 	
 	public static String SearchCity(String CityName) {
-		String ListaLavori = Filters.City(x,CityName);
+		String ListaLavori = Filters.City(lavori,CityName);
 		return ListaLavori;
 	}
 	
@@ -77,7 +76,7 @@ public class Scanner {
 	 */
 	
 	public static String SearchLanguage(String Lang) {
-		String ListaLavori = Filters.Language(x,Lang);
+		String ListaLavori = Filters.Language(lavori,Lang);
 		return ListaLavori;
 	}
 		
@@ -92,7 +91,7 @@ public class Scanner {
 	 */
 	
 	public static String RemoteVerify(String IsRemote) {
-		String ListaLavori = Filters.IsRemoteOrNot(x, IsRemote);
+		String ListaLavori = Filters.IsRemoteOrNot(lavori, IsRemote);
 		return ListaLavori;
 	}
 	
@@ -109,14 +108,14 @@ public class Scanner {
 	 */
 	
 	public static String CombinedSearch1(String Lang,String CityName) {
-		String ListaLavori=Filters.FilteredSearch1(x, Lang, CityName);
+		String ListaLavori=Filters.FilteredSearch1(lavori, Lang, CityName);
 		return ListaLavori;
 	}
 	
 	
 	//FUNZIONE APPENA CREATA
 	public static String CombinedSearch3(String Lang,String CityName,String CityName2) {
-		String ListaLavori=Filters.FilteredSearch3(x, Lang, CityName,CityName2);
+		String ListaLavori=Filters.FilteredSearch3(lavori, Lang, CityName,CityName2);
 		return ListaLavori;
 	}
 	
@@ -143,7 +142,7 @@ public class Scanner {
 	 */
 	
 public static String CombinedSearch2(String Lang,String CityName,String IsRemote) {
-		String ListaLavori=Filters.FilteredSearch2(x, Lang, CityName, IsRemote);
+		String ListaLavori=Filters.FilteredSearch2(lavori, Lang, CityName, IsRemote);
 		return ListaLavori;
 	}
 }

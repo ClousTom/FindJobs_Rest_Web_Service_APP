@@ -22,8 +22,7 @@ import it.progetto.FIndJobs.service.*;
 @RestController
 public class controller {
 	
-	String risp;
-	
+	String answer;
     /**
      * Rotta di tipo GET che consiglia al Client delle città e dei linguaggi di programmazione su cui fare
      * le ricerche.
@@ -34,7 +33,7 @@ public class controller {
 	@GetMapping("/help")
 	public ResponseEntity<Object> Suggerimento() {
 		
-		risp = "FindJobs! L'applicazione rest per cercare il lavoro che fa per te! \n"
+		answer = "FindJobs! L'applicazione rest per cercare il lavoro che fa per te! \n"
 				+ "Utilizza la struttura delle rotte come indicato su GitHub. \n"
 				+ "Ecco dei suggerimenti su delle città che puoi cercare: \n"
 				+ "-> London \n"
@@ -48,7 +47,7 @@ public class controller {
 				+ "-> Python \n"
 				+ "-> github \n";
 		
-		return new ResponseEntity<> (risp, HttpStatus.OK);
+		return new ResponseEntity<> (answer, HttpStatus.OK);
 	}
 	
     /**
@@ -65,9 +64,9 @@ public class controller {
 	@GetMapping("/city/{CityName}")
 	public ResponseEntity<Object> RicercaPerCitta(@PathVariable String CityName) {
 		
-		risp = Scanner.SearchCity(CityName);
+		answer = Scanner.SearchCity(CityName);
 		
-		return new ResponseEntity<> (risp, HttpStatus.OK);
+		return new ResponseEntity<> (answer, HttpStatus.OK);
 	}
 	
    /** Si avrà una serie di risposte dal server strutturate nel modo seguente:
@@ -102,9 +101,9 @@ public class controller {
 	@GetMapping("/language/{Language}")
 	public ResponseEntity<Object> RicercaPerLinguaggio(@PathVariable String Language) {
 		
-		risp = Scanner.SearchLanguage(Language);
+		answer = Scanner.SearchLanguage(Language);
 		
-		return new ResponseEntity<> (risp, HttpStatus.OK);
+		return new ResponseEntity<> (answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -119,9 +118,9 @@ public class controller {
 	@GetMapping("/isremote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaLavoriInRemoto2(@PathVariable String TrueOrFalse) {
 		
-		risp = Scanner.RemoteVerify(TrueOrFalse);
+		answer = Scanner.RemoteVerify(TrueOrFalse);
 		
-		return new ResponseEntity<> (risp, HttpStatus.OK);
+		return new ResponseEntity<> (answer, HttpStatus.OK);
 	}
 	 
 	/**
@@ -137,9 +136,9 @@ public class controller {
 	@GetMapping("/search/language/{Language}/cities/{City1}")
 	public ResponseEntity<Object> RicercaCombinata1(@PathVariable String Language,@PathVariable String City1){
 		
-		risp=Scanner.CombinedSearch1(Language,City1);
+		answer=Scanner.CombinedSearch1(Language,City1);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 		
 	/**
@@ -157,9 +156,9 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata2(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2){
 		
-		risp=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2);
+		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -178,10 +177,10 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata3(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3){
 		
-		risp=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
+		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
 		+Scanner.CombinedSearch1(Language, City3);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -201,10 +200,10 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata4(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4){
 		
-		risp=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
+		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
 		+Scanner.CombinedSearch1(Language, City3)+Scanner.CombinedSearch1(Language, City4);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -226,11 +225,11 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5){
 		
-		risp=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
+		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
 		+Scanner.CombinedSearch1(Language, City3)+Scanner.CombinedSearch1(Language, City4)
 		+Scanner.CombinedSearch1(Language, City5);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -250,9 +249,9 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
 			@PathVariable String TrueOrFalse){
 		
-		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse);
+		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -273,10 +272,10 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String TrueOrFalse){
 		
-		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
+		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
 				Scanner.CombinedSearch2(Language,City2,TrueOrFalse);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -298,11 +297,11 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String TrueOrFalse){
 		
-		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
+		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City3,TrueOrFalse);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
 	/**
@@ -326,12 +325,12 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4
 	,@PathVariable String TrueOrFalse){
 		
-		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
+		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
 				Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
 				Scanner.CombinedSearch2(Language,City3,TrueOrFalse)+
 				Scanner.CombinedSearch2(Language,City4,TrueOrFalse);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 
 	/**
@@ -356,12 +355,12 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5,@PathVariable String TrueOrFalse){
 		
-		risp=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
+		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City3,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City4,TrueOrFalse)+
 		Scanner.CombinedSearch2(Language,City5,TrueOrFalse);
 		
-		return new ResponseEntity<>(risp, HttpStatus.OK);
+		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 }

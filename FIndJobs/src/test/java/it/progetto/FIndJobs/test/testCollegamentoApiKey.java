@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 
 import it.progetto.FIndJobs.*;
 import it.progetto.FIndJobs.model.Lavori;
-import it.progetto.FIndJobs.model.CollegamentoApiKey;
 
 /**
  * 

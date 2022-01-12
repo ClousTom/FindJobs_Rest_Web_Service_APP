@@ -26,7 +26,8 @@ public class Scanner {
 	 */
 	
     static JSONArray Data = new JSONArray();
-	static Lavori[] x = new Lavori[10000];
+	static Lavori[] x;
+//	static Vector<Lavori> lavoro = new Vector<Lavori>();
 	
 	/**
 	 * Questa funzione ha lo scopo di inizializzare la connessione nella pagina:"https://findwork.dev/api/jobs".
@@ -46,9 +47,8 @@ public class Scanner {
 		
 		int countPag = 0;
 		Data = DownloadData.connect(Data,url,countPag);
-		
+		x = new Lavori[Data.size()];
 		x = parseData.pData(Data, x);
-//		System.out.println(x[0].toString());
 	}
 	
 	/**

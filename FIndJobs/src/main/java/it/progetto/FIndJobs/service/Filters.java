@@ -21,13 +21,27 @@ public class Filters {
 	 */
 	
 	public static String City (Lavori[] x, String CityName){
+		int count=0;
+		int countRemote=0;
+		int countNoRemote=0;
 		String risp="";
-		for(int i=0;i<6000;i++) {
+		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)) {
+				count++;
 				risp = risp + x[i].toString();
+				if(x[i].isRemote()) {
+					countRemote++;
+				}
+				else if(!x[i].isRemote()) {
+					countNoRemote++;
+				}
 			}
 		}
-		return risp;
+		return "Trovati "+count+" offerte di lavoro a "+CityName+" su "+ x.length +" offerte di lavoro totali ("+(count*100)/x.length +"%).\n"
+				+ "In remoto: "+countRemote+";\n"
+				+ "In presenza: "+countNoRemote+";\n"
+				+ "Non specificato in "+(x.length-countRemote-countNoRemote)+" offerte di lavoro.\n"
+				+ risp;
 	}
 	
 	/**
@@ -41,13 +55,27 @@ public class Filters {
 	 */
 	
 	public static String Language (Lavori[] x, String Lang){
+		int count=0;
+		int countRemote=0;
+		int countNoRemote=0;
 		String risp="";
-		for(int i=0;i<6000;i++) {
+		for(int i=0;i<x.length;i++) {
 			if(x[i].isLang(Lang)) {
+				count++;
 				risp = risp + x[i].toString();
+				if(x[i].isRemote()) {
+					countRemote++;
+				}
+				else if(!x[i].isRemote()) {
+					countNoRemote++;
+				}
 			}
 		}
-		return risp;
+		return "Trovati "+count+" offerte di lavoro con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali ("+(count*100)/x.length +"%).\n"
+				+ "In remoto: "+countRemote+";\n"
+				+ "In presenza: "+countNoRemote+";\n"
+				+ "Non specificato in "+(x.length-countRemote-countNoRemote)+" offerte di lavoro.\n"
+				+ risp;
 	}
 	
 	/**
@@ -60,18 +88,25 @@ public class Filters {
 	 */
 	
 	public static String IsRemoteOrNot(Lavori[] x, String IsRemote ){
+		int count=0;
 		String risp="";
 		if(IsRemote.equals("true")){
-		for(int i=0;i<6000;i++) {
-			if(x[i].isRemote()) {
-				risp = risp + x[i].toString()+"\n";}
+			for(int i=0;i<x.length;i++) {
+				if(x[i].isRemote()) {
+					count++;
+					risp = risp + x[i].toString()+"\n";
+				}
 			}
+			risp = "Trovati "+count+" offerte di lavoro in remoto ("+(count*100)/x.length+"%).\n" +risp;
 		}
-		else if(IsRemote.equals("false")){for(int i=0;i<6000;i++) {
-			if(!x[i].isRemote()) {
-				risp = risp + x[i].toString()+"\n";
+		else if(IsRemote.equals("false")){
+			for(int i=0;i<x.length;i++) {
+				if(!x[i].isRemote()) {
+					count++;
+					risp = risp + x[i].toString()+"\n";
+				}
 			}
-		}				
+			risp = "Trovati "+count+" offerte di lavoro in presenza ("+(count*100)/x.length+"%).\n" +risp;
 		}											
 		return risp;			
 	}		
@@ -89,7 +124,7 @@ public class Filters {
 	
 	public static String FilteredSearch1(Lavori[] x, String Lang, String CityName) {
 		String risp="";
-		for(int i=0;i<6000;i++) {
+		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
 					risp=risp+x[i].toString();
@@ -114,7 +149,7 @@ public class Filters {
 	
 	public static String FilteredSearch2(Lavori[] x, String Lang, String CityName, String IsRemote) {
 		String risp="";
-		for(int i=0;i<6000;i++) {
+		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
 					if(IsRemote.equals("true")){

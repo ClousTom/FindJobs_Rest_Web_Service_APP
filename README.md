@@ -170,8 +170,10 @@ Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi su
 
 ### Class Diagram
 
+![class-diagram](https://user-images.githubusercontent.com/93586306/149367416-23f1909e-bc45-4ba1-92f1-9eb4e79d1d9e.jpg)
 
 
+### Sequence Diagram
 
 
 

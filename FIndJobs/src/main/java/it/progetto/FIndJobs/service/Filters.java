@@ -25,7 +25,6 @@ public class Filters {
 	public static String City (Lavori[] x, String CityName){
 		int count=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		String risp="";
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)) {
@@ -34,15 +33,11 @@ public class Filters {
 				if(x[i].isRemote()) {
 					countRemote++;
 				}
-				else if(!x[i].isRemote()) {
-					countNoRemote++;
-				}
 			}
 		}
 		return "Trovati "+count+" offerte di lavoro a "+CityName+" su "+ x.length +" offerte di lavoro totali ("+(count*100)/x.length +"%).\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato in "+(x.length-countRemote-countNoRemote)+" offerte di lavoro.\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+(count-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -60,7 +55,6 @@ public class Filters {
 	public static String Language (Lavori[] x, String Lang){
 		int count=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		String risp="";
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isLang(Lang)) {
@@ -69,15 +63,11 @@ public class Filters {
 				if(x[i].isRemote()) {
 					countRemote++;
 				}
-				else if(!x[i].isRemote()) {
-					countNoRemote++;
-				}
 			}
 		}
 		return "Trovati "+count+" offerte di lavoro con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali ("+(count*100)/x.length +"%).\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato in "+(x.length-countRemote-countNoRemote)+" offerte di lavoro.\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+(count-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -132,28 +122,23 @@ public class Filters {
 	
 	public static String FilteredSearch1(Lavori[] x, String Lang, String CityName) {
 		String risp="";
-		int count1=0;
+		int count=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
-					count1++;
+					count++;
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 		}	
-		return "Trovati "+count1+" offerte di lavoro a "+CityName+" con il linguaggio di programmazione "+
+		return "Trovati "+count+" offerte di lavoro a "+CityName+" con il linguaggio di programmazione "+
 		Lang+" su "+ x.length +" offerte di lavoro totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1)-countRemote-countNoRemote)+"\n"
+		+ "In remoto: "+countRemote+"\n"
+		+ "In presenza: "+(count-countRemote)+"\n"
 		+ risp;		
 	}
 
@@ -177,7 +162,6 @@ public class Filters {
 		int count1=0;
 		int count2=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
@@ -185,9 +169,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -198,16 +179,12 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 		}
 		return "Trovati "+count1+" offerte di lavoro a "+CityName+" e "+count2+" a "+CityName2+" con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali.\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato: "+((count1+count2)-countRemote-countNoRemote)+"\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+((count1+count2)-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -234,7 +211,6 @@ public class Filters {
 		int count2=0;
 		int count3=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
@@ -242,9 +218,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -255,9 +228,6 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 			else if(x[i].isCity(CityName3)){
@@ -267,18 +237,14 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 		}
 		return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
 			CityName2+" e "+count3+" offerte di lavoro a "+CityName3+" con il linguaggio di programmazione"
 			+ " "+Lang+" su "+ x.length +" offerte di lavoro "+ "totali.\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato: "+((count1+count2+count3)-countRemote-countNoRemote)+"\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+((count1+count2+count3)-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -307,7 +273,6 @@ public class Filters {
 		int count3=0;
 		int count4=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
@@ -315,9 +280,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -328,9 +290,6 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 			else if(x[i].isCity(CityName3)){
@@ -339,9 +298,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -352,19 +308,14 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 		}
 		return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
-			CityName2+", "+count3+" offerte di lavoro a "+CityName3+" e "+count4+" offerte di lavoro a"+
-		CityName4+" con il linguaggio di programmazione"+ " "+Lang+" su "+ x.length +" offerte di lavoro "+
-			"totali.\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato: "+((count1+count2+count3+count4)-countRemote-countNoRemote)+"\n"
+			CityName2+", "+count3+" offerte di lavoro a "+CityName3+" e "+count4+" offerte di lavoro a "+
+		CityName4+" con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali.\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+((count1+count2+count3+count4)-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -395,7 +346,6 @@ public class Filters {
 		int count4=0;
 		int count5=0;
 		int countRemote=0;
-		int countNoRemote=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
@@ -403,9 +353,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -416,9 +363,6 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 			else if(x[i].isCity(CityName3)){
@@ -427,9 +371,6 @@ public class Filters {
 					risp=risp+x[i].toString();
 					if(x[i].isRemote()) {
 						countRemote++;
-					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
 					}
 				}				
 			}
@@ -440,9 +381,6 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 			else if(x[i].isCity(CityName5)){
@@ -452,19 +390,15 @@ public class Filters {
 					if(x[i].isRemote()) {
 						countRemote++;
 					}
-					else if(!x[i].isRemote()) {
-						countNoRemote++;
-					}
 				}				
 			}
 		}
 		return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
-			CityName2+", "+count3+" offerte di lavoro a "+CityName3+", "+count4+" offerte di lavoro a"+
-		CityName4+" e "+count5+" offerte di lavoro a "+CityName5+" con il linguaggio di programmazione"+
-			" "+Lang+" su "+ x.length +" offerte di lavoro "+"totali.\n"
-				+ "In remoto: "+countRemote+";\n"
-				+ "In presenza: "+countNoRemote+";\n"
-				+ "Non specificato: "+((count1+count2+count3+count4+count5)-countRemote-countNoRemote)+"\n"
+				CityName2+", "+count3+" offerte di lavoro a "+CityName3+", "+count4+" offerte di lavoro a "+
+				CityName4+" e "+count5+" offerte di lavoro a "+CityName5+" con il linguaggio di programmazione "
+				+Lang+" su "+ x.length +" offerte di lavoro totali.\n"
+				+ "In remoto: "+countRemote+"\n"
+				+ "In presenza: "+((count1+count2+count3+count4+count5)-countRemote)+"\n"
 				+ risp;
 	}
 	
@@ -485,32 +419,31 @@ public class Filters {
 	
 	public static String FilteredSearch6(Lavori[] x, String Lang, String CityName, String IsRemote) {
 		String risp="";
-		int count1=0;
-		int countRemote=0;
-		int countNoRemote=0;
+		String remote="";
+		if(IsRemote.equals("true")){
+			remote=" in remoto ";
+		} else {
+			remote=" in presenza ";
+		}
+		int count=0;
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
 					if(IsRemote.equals("true")){					
-						count1++;
-						risp = risp + x[i].toString()+"\n";							
-						countRemote++;							
+						count++;
+						risp = risp + x[i].toString()+"\n";												
 						}
 					else if(IsRemote.equals("false"))
 					{
-						count1++;
-						countNoRemote++;
+						count++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
 				}				
 			}
 		}		
-		return "Trovati "+count1+" offerte di lavoro a "+CityName+" con il linguaggio di programmazione "+
-		Lang+" su "+ x.length +" offerte di lavoro totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1)-countRemote-countNoRemote)+"\n"
-		+ risp;
+		return "Trovati "+count+" offerte di lavoro a "+CityName+" con il linguaggio di programmazione "+
+			Lang+remote+" su "+ x.length +" offerte di lavoro totali.\n"
+			+ risp;
 	}	
 	
 	/**
@@ -534,20 +467,22 @@ public class Filters {
 		String risp="";
 		int count1=0;
 		int count2=0;
-		int countRemote=0;
-		int countNoRemote=0;
+		String remote="";
+		if(IsRemote.equals("true")){
+			remote=" in remoto ";
+		} else {
+			remote=" in presenza ";
+		}
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
 					if(IsRemote.equals("true")){					
 						count1++;
-						risp = risp + x[i].toString()+"\n";							
-						countRemote++;							
+						risp = risp + x[i].toString()+"\n";													
 						}
 					else if(IsRemote.equals("false"))
 					{
 						count1++;
-						countNoRemote++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
 				}				
@@ -556,24 +491,19 @@ public class Filters {
 				if(x[i].isLang(Lang)){
 					if(IsRemote.equals("true")){					
 						count2++;
-						risp = risp + x[i].toString()+"\n";							
-						countRemote++;							
+						risp = risp + x[i].toString()+"\n";													
 						}
 					else if(IsRemote.equals("false"))
 					{
 						count2++;
-						countNoRemote++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
 				}				
 			}
 		}		
 		return "Trovati "+count1+" offerte di lavoro a "+CityName+" e "+count2+" a "+CityName2+
-		" con il linguaggio di programmazione "+Lang+" su "+ x.length +" offerte di lavoro totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1+count2)-countRemote-countNoRemote)+"\n"
-		+ risp;
+				" con il linguaggio di programmazione "+Lang+remote+" su "+ x.length +" offerte di lavoro totali.\n"
+				+ risp;
 
 	}
 	
@@ -600,20 +530,22 @@ public class Filters {
 	int count1=0;
 	int count2=0;
 	int count3=0;
-	int countRemote=0;
-	int countNoRemote=0;
+	String remote="";
+	if(IsRemote.equals("true")){
+		remote=" in remoto ";
+	} else {
+		remote=" in presenza ";
+	}
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count1++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";												
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count1++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -622,13 +554,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count2++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";												
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count2++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -637,25 +567,20 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count3++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";												
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count3++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
 		}
 	}		
 	return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
-	CityName2+" e "+count3+" offerte di lavoro a "+CityName3+" con il linguaggio di programmazione"
-	+ " "+Lang+" su "+ x.length +" offerte di lavoro "+ "totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1+count2+count3)-countRemote-countNoRemote)+"\n"
-		+ risp;
+			CityName2+" e "+count3+" offerte di lavoro a "+CityName3+" con il linguaggio di programmazione "
+			+Lang+remote+" su "+ x.length +" offerte di lavoro totali.\n"
+			+ risp;
 
 	}
 	
@@ -684,20 +609,22 @@ public class Filters {
 	int count2=0;
 	int count3=0;
 	int count4=0;
-	int countRemote=0;
-	int countNoRemote=0;
+	String remote="";
+	if(IsRemote.equals("true")){
+		remote=" in remoto ";
+	} else {
+		remote=" in presenza ";
+	}
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count1++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count1++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -706,13 +633,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count2++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count2++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -721,13 +646,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count3++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count3++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -736,26 +659,20 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count4++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count4++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
 		}
 	}		
 	return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
-	CityName2+", "+count3+" offerte di lavoro a "+CityName3+" e "+count4+" offerte di lavoro a"+
-	CityName4+" con il linguaggio di programmazione"+ " "+Lang+" su "+ x.length +" offerte di lavoro "+
-	"totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1+count2+count3+count4)-countRemote-countNoRemote)+"\n"
-		+ risp;
+			CityName2+", "+count3+" offerte di lavoro a "+CityName3+" e "+count4+" offerte di lavoro a "+
+			CityName4+" con il linguaggio di programmazione "+Lang+remote+" su "+ x.length +" offerte di lavoro totali.\n"
+			+ risp;
 	}
 	
 	/**
@@ -785,20 +702,22 @@ public class Filters {
 	int count3=0;
 	int count4=0;
 	int count5=0;
-	int countRemote=0;
-	int countNoRemote=0;
+	String remote="";
+	if(IsRemote.equals("true")){
+		remote=" in remoto ";
+	} else {
+		remote=" in presenza ";
+	}
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count1++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count1++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -807,13 +726,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count2++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count2++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -822,13 +739,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count3++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count3++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -837,13 +752,11 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count4++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count4++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
@@ -852,25 +765,20 @@ public class Filters {
 			if(x[i].isLang(Lang)){
 				if(IsRemote.equals("true")){					
 					count5++;
-					risp = risp + x[i].toString()+"\n";							
-					countRemote++;							
+					risp = risp + x[i].toString()+"\n";													
 					}
 				else if(IsRemote.equals("false"))
 				{
 					count5++;
-					countNoRemote++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
 			}				
 		}		
 	}		
 	return "Trovati "+count1+" offerte di lavoro a "+CityName+", "+count2+" offerte di lavoro a "+
-	CityName2+", "+count3+" offerte di lavoro a "+CityName3+", "+count4+" offerte di lavoro a"+
-	CityName4+" e "+count5+" offerte di lavoro a "+CityName5+" con il linguaggio di programmazione"+
-	" "+Lang+" su "+ x.length +" offerte di lavoro "+"totali.\n"
-		+ "In remoto: "+countRemote+";\n"
-		+ "In presenza: "+countNoRemote+";\n"
-		+ "Non specificato: "+((count1+count2+count3+count4+count5)-countRemote-countNoRemote)+"\n"
-		+ risp;
+			CityName2+", "+count3+" offerte di lavoro a "+CityName3+", "+count4+" offerte di lavoro a "+
+			CityName4+" e "+count5+" offerte di lavoro a "+CityName5+" con il linguaggio di programmazione "
+			+Lang+remote+" su "+ x.length +" offerte di lavoro totali.\n"
+			+ risp;
 	}		
 }

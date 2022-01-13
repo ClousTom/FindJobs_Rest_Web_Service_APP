@@ -16,11 +16,11 @@ Questa nostra applicazione ha lo scopo di effettuare ricerche di offerte di lavo
 <a name="intro"></a>
 ## Introduzione
 FindJobs è un applicazione Rest Web Service nata con lo scopo di aiutare studenti neolaureati in ingegneria informatica nella ricerca di un lavoro a seconda delle proprie 
-esigenze. Inoltre è in grado di applicare diversi filtri combinati per far in modo di trovare il lavoro più adatto a colui che utilizza l'applicazione.
+esigenze. Inoltre è in grado di applicare diversi filtri combinati per far in modo di trovare il lavoro più adatto a colui che utilizza l'applicazione, oltre che a generare delle statistiche utili al client.
 
 Scritto interamente in Java, supportato dalle varie librerie Maven, Spring e Json Simple il programma non appena viene mandato in esecuzione, inizierà a raccogliere i dati
 di migliaia di offerte di lavoro(in ambito informatico) dal sito https://findwork.dev/api/jobs/ per poi metterle a disposizione dell'utente che, utilizzando un programma che
-effettua richieste HTTP può effettuare diverse tipologie di ricerche tra i vari lavori, filtrandoli a seconda della città in cui si trovano e/o a seconda  dei linguaggi di programmazione utilizzati e/o in base alla tipologia di lavoro(se operano solo in presenza o anche in remoto con smartworking). Il programma quindi restituirà all utente un'elenco delle offerte di lavoro trovate, le quali conterranno diverse informazioni utili all'utente. 
+effettua richieste HTTP può effettuare diverse tipologie di ricerche tra i vari lavori, filtrandoli a seconda della città in cui si trovano e/o a seconda  dei linguaggi di programmazione utilizzati e/o in base alla tipologia di lavoro(se operano solo in presenza o anche in remoto con smartworking). Il programma quindi restituirà all utente un'elenco delle offerte di lavoro trovate, le quali conterranno diverse informazioni utili all'utente, insieme a delle statistiche sulla ricerca effettuata.
 
 
 <a name="install"></a>
@@ -68,6 +68,7 @@ La prima rotta restituisce al client un semplice messaggio contenente al suo int
 <a name="2"></a>
 ## 2. /city/{CityName}
 La seconda rotta(di tipo GET) presa in ingresso una città, restituisce all'utente una stringa contenente tutte le offerte di lavoro di imprese che operano in quella città richiesta. All'interno dell offerta di lavoro saranno presenti diverse informazioni utili al client quali: il ruolo dell'azienda nel mercato, la ragione sociale, la località, l'url del sito web, un testo descrittivo, i linguaggi di programmazione utilizzati(situati in keywords), la data di inserimento dell'annuncio e se l'azienda opera anche in remoto o meno.
+Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi sulla ricerca effettuata.
 
 Di seguito viene riportato un'esempio di offerta di lavoro che l'applicazione restituisce su postman: 
 ```
@@ -90,28 +91,31 @@ Source:Hn
 ```
 L'utente potrà quindi inserire qualsiasi città esso desideri, purchè questa esista tra gli annunci di lavoro disponibili e sia scritta correttamente(indifferentemente se questa venga scritta in CAPS o meno). 
 
-![postman1](https://user-images.githubusercontent.com/93586306/148753050-8e58f07d-756a-4aef-a6d3-aa62f2113a84.png)
+![postman1](https://user-images.githubusercontent.com/93586306/149310607-ee1008fa-ec71-461c-bb61-81f3be80c9f1.png)
+
 
 
 <a name="3"></a>
 ## 3. /language/{Language}
 La terza rotta(di tipo GET) prende in ingresso un linguaggio di programmazione e restituisce all'utente una stringa contenente tutte le offerte di lavoro di aziende informatiche che utilizzano quel linguaggio di programmazione richiesto. Anche in questo caso all'interno di ciascun offerta di lavoro saranno presenti diverse informazioni utili al client quali: il ruolo dell'azienda nel mercato, la ragione sociale, la località, l'url del sito web, un testo descrittivo, i linguaggi di programmazione utilizzati(situati in keywords), la data di inserimento dell'annuncio e se l'azienda opera anche in remoto o meno.
-
+Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi sulla ricerca effettuata.
 
 Quindi l'utente potrà inserire qualsiasi linguaggio di programmazione esso desideri, purchè questo esista tra gli annunci di lavoro disponibili e sia scritto correttamente(indifferentemente se questo venga scritta in CAPS o meno).
 
-![postman2](https://user-images.githubusercontent.com/93586306/148761201-655ba870-b554-497e-b17a-c1648efbc0c9.png)
+![postman2](https://user-images.githubusercontent.com/93586306/149310722-cc66fd15-a890-45fd-b3e3-76cab0abb4ae.png)
+
 
 
 <a name="4"></a>
 ## 4. /isremote/{TrueOrFalse}
 
 La quarta rotta (di tipo GET) può prendere in ingresso **true** oppure **false**. Nel primo caso, se **true**, il programma restituirà al client una stringa contenente tutti quei lavori che oltre a lavorare in presenza operano anche a distanza in smartworking. Altrimenti se si digita **false** il programma restituirà al client una stringa contenente tutti quei lavori che non adoperano lo smartworking. 
-
+Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi sulla ricerca effettuata.
 
 <a name="5"></a>
 ## 5. /search/language/{Language}/cities/{City}
 La quinta rotta (di tipo GET) può prendere in ingresso sia un linguaggio di programmazione e sia una o più città per cui l'utente vuole cercare offerte di lavoro. Nel caso di un linguaggio e una città, il programma restituirà al client tutte le offerte di lavoro di aziende che operano in quella città scelta ed utilizzano quel linguaggio di programmazione. 
+Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi sulla ricerca effettuata.
 
 Per effettuare ricerche per più di una città sarà necessario aggiungere uno slash e successivamente inserire il nome di un'altra città. Quindi l'utente potrà richiedere all'applicazione di effettuare ricerche combinate per un linguaggio e da 1 a 5 città diverse.
 
@@ -125,13 +129,16 @@ Per effettuare ricerche per più di una città sarà necessario aggiungere uno s
  
 Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmazione o qualsiasi città a suo piacimento, con la condizione che questi siano presenti tra le offerte di lavoro disponibili e siano scritti correttamente(il programma non tiene conto di input di maiuscole o minuscole).
 
-![postman3](https://user-images.githubusercontent.com/93586306/148765265-210a7c2c-6b54-421c-9f2f-cdc0dd89742f.png)
+![postman3](https://user-images.githubusercontent.com/93586306/149310788-1d68c191-d699-4716-bbcb-f6ba4f0460ca.png)
+
 
  <a name="6"></a>
 ## 6. /search/language/{Language}/cities/{City}/remote/{TrueOrFalse}
  La sesta ed ultima rotta(sempre di tipo GET) può prendere in ingresso un linguaggio di programmazione, la tipologia di lavoro(se l'azienda opera o meno anche in remoto) e una o più differenti città(fino a 5) per cui sono pubblicati gli annunci di lavoro. Nel caso vengano digitati un linguaggio, una città e **true** o **false**(alla voce "remote"), il programma restituirà al client tutte le offerte di lavoro di aziende che operano in quella città scelta, utilizzano quel linguaggio di programmazione ed operano o meno in smartworking. 
+Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi sulla ricerca effettuata.
  
- ![postman4](https://user-images.githubusercontent.com/93586306/148790360-ba2e6a62-7fb6-4460-b624-075e438c3ac0.png)
+ ![postman4](https://user-images.githubusercontent.com/93586306/149310828-eb10e50b-dcdd-4409-a47a-0a27455c5d73.png)
+
 
 
  Per effettuare ricerche per più di una città sarà necessario aggiungere uno slash(dopo l'ultima città digitata) e successivamente inserire il nome di un'altra città. Quindi l'utente potrà richiedere all'applicazione di effettuare ricerche combinate per un linguaggio, lavoro remoto o non e da 1 a 5 città diverse.
@@ -147,7 +154,8 @@ Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmaz
  
  Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmazione o qualsiasi città a suo piacimento, con la condizione che questi siano presenti tra le offerte di lavoro disponibili e siano scritti correttamente(il programma non tiene conto di input di maiuscole o minuscole).
  
-![postman5](https://user-images.githubusercontent.com/93586306/148790966-c9a006c5-06fe-4880-818b-c74838b31a1d.png)
+![postman5](https://user-images.githubusercontent.com/93586306/149310864-3ff1d599-b5ba-4419-a07f-5d9eb41124f2.png)
+
 
 <a name="uml"></a>
 ## Diagrammi UML
@@ -157,7 +165,8 @@ Anche in questo caso l'utente potrà inserire qualsiasi linguaggio di programmaz
 ### Use Case Diagram
 
 
-![use-case](https://user-images.githubusercontent.com/93586306/148813744-6f84e152-9229-43a1-9bb2-f6e228015afa.png)
+![use-case](https://user-images.githubusercontent.com/93586306/149311703-2c4e6eb3-85f1-4376-a8d1-c1617e396869.png)
+
 
 ### Class Diagram
 

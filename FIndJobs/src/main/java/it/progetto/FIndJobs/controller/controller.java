@@ -157,7 +157,7 @@ public class controller {
 	@PathVariable String City2){
 		
 		//answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2);
-		answer=Scanner.CombinedSearch3(Language, City1, City2);
+		answer=Scanner.CombinedSearch2(Language, City1, City2);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -178,9 +178,7 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata3(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3){
 		
-		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
-		+Scanner.CombinedSearch1(Language, City3);
-		
+		answer=Scanner.CombinedSearch3(Language, City1, City2, City3);
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
 	
@@ -201,8 +199,7 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata4(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4){
 		
-		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
-		+Scanner.CombinedSearch1(Language, City3)+Scanner.CombinedSearch1(Language, City4);
+		answer=Scanner.CombinedSearch4(Language, City1, City2, City3, City4);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -226,9 +223,7 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5){
 		
-		answer=Scanner.CombinedSearch1(Language,City1)+Scanner.CombinedSearch1(Language, City2)
-		+Scanner.CombinedSearch1(Language, City3)+Scanner.CombinedSearch1(Language, City4)
-		+Scanner.CombinedSearch1(Language, City5);
+		answer=Scanner.CombinedSearch5(Language,City1,City2,City3,City4,City5);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -250,7 +245,7 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
 			@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse);
+		answer=Scanner.CombinedSearch6(Language,City1,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -273,8 +268,7 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
-				Scanner.CombinedSearch2(Language,City2,TrueOrFalse);
+		answer=Scanner.CombinedSearch7(Language,City1,City2,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -298,9 +292,7 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City3,TrueOrFalse);
+		answer=Scanner.CombinedSearch8(Language,City1,City2,City3,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -326,10 +318,7 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4
 	,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
-				Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
-				Scanner.CombinedSearch2(Language,City3,TrueOrFalse)+
-				Scanner.CombinedSearch2(Language,City4,TrueOrFalse);
+		answer=Scanner.CombinedSearch9(Language,City1,City2,City3,City4,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -356,11 +345,7 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch2(Language,City1,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City2,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City3,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City4,TrueOrFalse)+
-		Scanner.CombinedSearch2(Language,City5,TrueOrFalse);
+		answer=Scanner.CombinedSearch10(Language,City1,City2,City3,City4,City5,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}

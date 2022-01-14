@@ -172,13 +172,15 @@ Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi su
 
 ### Class Diagram
 
-![class-diagram](https://user-images.githubusercontent.com/93586306/149367416-23f1909e-bc45-4ba1-92f1-9eb4e79d1d9e.jpg)
+![class-diagram](https://user-images.githubusercontent.com/93586306/149541989-0a4bc03d-4dfb-4e79-a6af-522a4e5911e7.jpg)
+
 
 
 ### Sequence Diagram
 
 ####  :heavy_check_mark:Avvio dell'applicazione
-![Sequence2-EXE](https://user-images.githubusercontent.com/93586306/149490375-a208ca3f-b15e-4e15-9c71-94c130d592b1.jpg)
+![Sequence2-EXE](https://user-images.githubusercontent.com/93586306/149542242-d19ba612-b791-4323-9a64-2e016318e469.jpg)
+
 
 
 ####  :heavy_check_mark:Rotta /help

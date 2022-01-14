@@ -1,5 +1,5 @@
 <h1 align="center"> Progetto-Programmazione-Ad-Oggetti </h1>
-<h1 align="center"> FindJobs </h1> 
+<h1 align="center"> FindJobs :briefcase: </h1> 
 <p align="center">
 Questa nostra applicazione ha lo scopo di effettuare ricerche di offerte di lavoro a seconda di filtri desiderati, come ad esempio la città, il linguaggio di programmazione utilizzato oppure la tipologia di lavoro(se in smartworking o meno).
 </p>
@@ -174,6 +174,23 @@ Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi su
 
 
 ### Sequence Diagram
+
+####  :heavy_check_mark:Avvio dell'applicazione
+![Sequence2-EXE](https://user-images.githubusercontent.com/93586306/149490375-a208ca3f-b15e-4e15-9c71-94c130d592b1.jpg)
+
+
+####  :heavy_check_mark:Rotta /help
+![sequence1-HELP](https://user-images.githubusercontent.com/93586306/149491077-7d53a971-7727-4563-8cb9-6e64c8470a43.png)
+
+
+
+#### :heavy_check_mark:Rotta /search/language/{linguaggio}/cities/{city1}
+![Sequence3 - RicercaCombinata](https://user-images.githubusercontent.com/93586306/149490621-fe130dcc-23a0-4aa5-b042-bca01783aeaf.jpg)
+
+
+#### :heavy_check_mark:Rotta /search/language/{linguaggio}/cities/{city1}/remote/{TrueOrFalse}
+![Sequence4-RicercaCombinata2](https://user-images.githubusercontent.com/93586306/149490737-7223ec94-c12b-4cd9-9706-cded887abeba.jpg)
+
 
 
 

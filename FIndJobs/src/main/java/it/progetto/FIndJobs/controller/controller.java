@@ -123,7 +123,9 @@ public class controller {
 	@GetMapping("/isremote/{TrueOrFalse}")
 	public ResponseEntity<Object> RicercaLavoriInRemoto2(@PathVariable String TrueOrFalse) {
 		
-		answer = Scanner.RemoteVerify(TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer = Scanner.RemoteVerify(TrueOrFalse);
 		
 		return new ResponseEntity<> (answer, HttpStatus.OK);
 	}
@@ -250,7 +252,9 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata6(@PathVariable String Language,@PathVariable String City1,
 			@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch6(Language,City1,TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer=Scanner.CombinedSearch6(Language,City1,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -273,7 +277,9 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata7(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch7(Language,City1,City2,TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer=Scanner.CombinedSearch7(Language,City1,City2,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -297,7 +303,9 @@ public class controller {
 	public ResponseEntity<Object> RicercaCombinata8(@PathVariable String Language,@PathVariable String City1,
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch8(Language,City1,City2,City3,TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer=Scanner.CombinedSearch8(Language,City1,City2,City3,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -323,7 +331,9 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4
 	,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch9(Language,City1,City2,City3,City4,TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer=Scanner.CombinedSearch9(Language,City1,City2,City3,City4,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}
@@ -350,7 +360,9 @@ public class controller {
 	@PathVariable String City2,@PathVariable String City3,@PathVariable String City4,
 	@PathVariable String City5,@PathVariable String TrueOrFalse){
 		
-		answer=Scanner.CombinedSearch10(Language,City1,City2,City3,City4,City5,TrueOrFalse);
+		if (!TrueOrFalse.toLowerCase().equals("true") && !TrueOrFalse.toLowerCase().equals("false")){
+			answer = "Hai commesso un errore nella ricerca.";
+		} else answer=Scanner.CombinedSearch10(Language,City1,City2,City3,City4,City5,TrueOrFalse);
 		
 		return new ResponseEntity<>(answer, HttpStatus.OK);
 	}

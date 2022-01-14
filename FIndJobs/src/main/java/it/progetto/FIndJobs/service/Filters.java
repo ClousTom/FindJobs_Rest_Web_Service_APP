@@ -206,7 +206,7 @@ public class Filters {
 	 * statistiche.
 	 */	
 	
-	public static String FilteredSearch3(Lavori[] x, String Lang, String CityName, String CityName2,String
+	public static String FilteredSearch3(Lavori[] x, String Lang, String CityName, String CityName2, String
 			CityName3) {
 		String risp="";
 		int count1=0;
@@ -267,8 +267,8 @@ public class Filters {
 	 * statistiche.
 	 */	
 	
-	public static String FilteredSearch4(Lavori[] x, String Lang, String CityName, String CityName2,String
-			CityName3,String CityName4) {
+	public static String FilteredSearch4(Lavori[] x, String Lang, String CityName, String CityName2, String
+			CityName3, String CityName4) {
 		String risp="";
 		int count1=0;
 		int count2=0;
@@ -339,8 +339,8 @@ public class Filters {
 	 * statistiche.
 	 */	
 	
-	public static String FilteredSearch5(Lavori[] x, String Lang, String CityName, String CityName2,String
-			CityName3,String CityName4,String CityName5) {
+	public static String FilteredSearch5(Lavori[] x, String Lang, String CityName, String CityName2, String
+			CityName3, String CityName4, String CityName5) {
 		String risp="";
 		int count1=0;
 		int count2=0;
@@ -435,8 +435,7 @@ public class Filters {
 						count++;
 						risp = risp + x[i].toString()+"\n";												
 						}
-					else if(IsRemote.equals("false"))
-					{
+					else {
 						count++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
@@ -482,8 +481,7 @@ public class Filters {
 						count1++;
 						risp = risp + x[i].toString()+"\n";													
 						}
-					else if(IsRemote.equals("false"))
-					{
+					else {
 						count1++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
@@ -495,8 +493,7 @@ public class Filters {
 						count2++;
 						risp = risp + x[i].toString()+"\n";													
 						}
-					else if(IsRemote.equals("false"))
-					{
+					else {
 						count2++;
 						risp = risp + x[i].toString()+"\n";	
 					}									
@@ -545,8 +542,7 @@ public class Filters {
 					count1++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -558,8 +554,7 @@ public class Filters {
 					count2++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count2++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -571,8 +566,7 @@ public class Filters {
 					count3++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count3++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -624,8 +618,7 @@ public class Filters {
 					count1++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -637,8 +630,7 @@ public class Filters {
 					count2++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count2++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -650,8 +642,7 @@ public class Filters {
 					count3++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count3++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -663,8 +654,7 @@ public class Filters {
 					count4++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count4++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -717,8 +707,7 @@ public class Filters {
 					count1++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -730,8 +719,7 @@ public class Filters {
 					count2++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count2++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -743,8 +731,7 @@ public class Filters {
 					count3++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count3++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -756,8 +743,7 @@ public class Filters {
 					count4++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count4++;
 					risp = risp + x[i].toString()+"\n";	
 				}									
@@ -769,8 +755,7 @@ public class Filters {
 					count5++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else if(IsRemote.equals("false"))
-				{
+				else {
 					count5++;
 					risp = risp + x[i].toString()+"\n";	
 				}									

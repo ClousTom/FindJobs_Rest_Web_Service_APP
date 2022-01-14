@@ -1,5 +1,6 @@
 package it.progetto.FIndJobs.service;
 
+
 import it.progetto.FIndJobs.model.Lavori;
 
 /**
@@ -50,9 +51,10 @@ public class Filters {
 	 * @param Lang Linguaggio di programmazione per cui si sta effettuando la ricerca.
 	 * @return Stringa che contiene tutti i lavori che soddisfano la condizione di ricerca assieme a delle
 	 * statistiche
+	 * @throws LanguageNotFoundException 
 	 */
 	
-	public static String Language (Lavori[] x, String Lang){
+	public static String Language (Lavori[] x, String Lang) {
 		int count=0;
 		int countRemote=0;
 		String risp="";

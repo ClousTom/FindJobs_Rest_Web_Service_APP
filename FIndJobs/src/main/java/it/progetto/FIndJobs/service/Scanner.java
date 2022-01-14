@@ -7,6 +7,7 @@ import org.json.simple.JSONArray;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+
 import it.progetto.FIndJobs.model.Lavori;
 import it.progetto.FIndJobs.service.*;
 
@@ -73,9 +74,10 @@ public class Scanner {
 	 * 
 	 * @param Lang Linguaggio di programmazione richiesto dal client da cui si effettua la ricerca.
 	 * @return Lista dei lavori che utilizza quel linguaggio.
+	 * @throws LanguageNotFoundException 
 	 */
 	
-	public static String SearchLanguage(String Lang) {
+	public static String SearchLanguage(String Lang)  {
 		String ListaLavori = Filters.Language(lavori,Lang);
 		return ListaLavori;
 	}

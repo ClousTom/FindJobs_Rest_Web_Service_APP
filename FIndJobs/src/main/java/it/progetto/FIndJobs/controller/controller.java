@@ -1,5 +1,7 @@
 package it.progetto.FIndJobs.controller;
 
+
+
 import javax.tools.Diagnostic;
 
 import org.springframework.http.HttpStatus;
@@ -8,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 import it.progetto.FIndJobs.service.*;
+
 
 /**
  * In questa classe è presente il RestController, che gestisce ogni singola rotta immessa
@@ -66,6 +71,7 @@ public class controller {
 		answer = Scanner.SearchCity(CityName);
 		
 		return new ResponseEntity<> (answer, HttpStatus.OK);
+
 	}
 	
    /** Si avrà una serie di risposte dal server strutturate nel modo seguente:
@@ -102,7 +108,7 @@ public class controller {
 		
 		answer = Scanner.SearchLanguage(Language);
 		
-		return new ResponseEntity<> (answer, HttpStatus.OK);
+		return new ResponseEntity<> (answer, HttpStatus.OK);		 	
 	}
 	
 	/**

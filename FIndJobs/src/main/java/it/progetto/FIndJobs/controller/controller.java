@@ -41,7 +41,6 @@ public class controller {
 				+ "-> Tokyo \n"
 				+ "-> NYC \n"
 				+ "-> Boston \n"
-				+ "-> San Francisco \n"
 				+ "Inoltre ecco dei suggerimenti sui linguaggi di programmazione che puoi cercare: \n"
 				+ "-> JavaScript \n"
 				+ "-> Python \n"

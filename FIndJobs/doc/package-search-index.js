@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"it.progetto.FIndJobs"},{"l":"it.progetto.FIndJobs.controller"},{"l":"it.progetto.FIndJobs.model"},{"l":"it.progetto.FIndJobs.service"},{"l":"it.progetto.FIndJobs.test"}];updateSearchResults();

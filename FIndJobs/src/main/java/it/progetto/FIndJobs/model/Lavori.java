@@ -105,6 +105,7 @@ public class Lavori {
 	}
 
 	public boolean isRemote() {
+		
 		return remote;
 	}
 

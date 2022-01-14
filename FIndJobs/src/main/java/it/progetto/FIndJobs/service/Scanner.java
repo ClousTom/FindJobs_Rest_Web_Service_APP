@@ -93,7 +93,7 @@ public class Scanner {
 	 */
 	
 	public static String RemoteVerify(String IsRemote) {
-		String ListaLavori = Filters.IsRemoteOrNot(lavori, IsRemote);
+		String ListaLavori = Filters.IsRemoteOrNot(lavori,IsRemote.toLowerCase());
 		return ListaLavori;
 	}
 	
@@ -210,7 +210,7 @@ public class Scanner {
 	 */
 	
 	public static String CombinedSearch6(String Lang,String CityName,String IsRemote) {
-			String ListaLavori=Filters.FilteredSearch6(lavori, Lang, CityName, IsRemote);
+			String ListaLavori=Filters.FilteredSearch6(lavori, Lang, CityName, IsRemote.toLowerCase());
 			return ListaLavori;
 		}
 	
@@ -231,7 +231,7 @@ public class Scanner {
 	 */
 	
 	public static String CombinedSearch7(String Lang,String CityName,String CityName2,String IsRemote) {
-		String ListaLavori=Filters.FilteredSearch7(lavori, Lang, CityName, CityName2, IsRemote);
+		String ListaLavori=Filters.FilteredSearch7(lavori, Lang, CityName, CityName2, IsRemote.toLowerCase());
 		return ListaLavori;
 		
 	}
@@ -254,7 +254,7 @@ public class Scanner {
 	
 	public static String CombinedSearch8(String Lang,String CityName,String CityName2,String CityName3,
 			String IsRemote) {
-		String ListaLavori=Filters.FilteredSearch8(lavori, Lang, CityName, CityName2, CityName3, IsRemote);
+		String ListaLavori=Filters.FilteredSearch8(lavori, Lang, CityName, CityName2, CityName3, IsRemote.toLowerCase());
 		return ListaLavori;
 		
 	}
@@ -279,7 +279,7 @@ public class Scanner {
 	public static String CombinedSearch9(String Lang,String CityName,String CityName2,String CityName3,
 			String CityName4, String IsRemote) {
 		String ListaLavori=Filters.FilteredSearch9(lavori, Lang, CityName, CityName2, CityName3,
-				CityName4,IsRemote);
+				CityName4,IsRemote.toLowerCase());
 		return ListaLavori;
 		
 	}
@@ -305,7 +305,7 @@ public class Scanner {
 	public static String CombinedSearch10(String Lang,String CityName,String CityName2,String CityName3,
 			String CityName4,String CityName5, String IsRemote) {
 		String ListaLavori=Filters.FilteredSearch10(lavori, Lang, CityName, CityName2, CityName3,
-				CityName4,CityName5,IsRemote);
+				CityName4,CityName5,IsRemote.toLowerCase());
 		return ListaLavori;
 		
 	}

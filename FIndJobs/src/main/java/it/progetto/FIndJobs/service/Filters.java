@@ -174,7 +174,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName2)){
+			if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
 					count2++;
 					risp=risp+x[i].toString();
@@ -223,7 +223,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName2)){
+			if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
 					count2++;
 					risp=risp+x[i].toString();
@@ -232,7 +232,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName3)){
+			if(x[i].isCity(CityName3)){
 				if(x[i].isLang(Lang)){
 					count3++;
 					risp=risp+x[i].toString();
@@ -285,7 +285,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName2)){
+			if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
 					count2++;
 					risp=risp+x[i].toString();
@@ -294,7 +294,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName3)){
+			if(x[i].isCity(CityName3)){
 				if(x[i].isLang(Lang)){
 					count3++;
 					risp=risp+x[i].toString();
@@ -303,7 +303,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName4)){
+			if(x[i].isCity(CityName4)){
 				if(x[i].isLang(Lang)){
 					count4++;
 					risp=risp+x[i].toString();
@@ -358,7 +358,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName2)){
+			if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
 					count2++;
 					risp=risp+x[i].toString();
@@ -367,7 +367,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName3)){
+			if(x[i].isCity(CityName3)){
 				if(x[i].isLang(Lang)){
 					count3++;
 					risp=risp+x[i].toString();
@@ -376,7 +376,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName4)){
+			if(x[i].isCity(CityName4)){
 				if(x[i].isLang(Lang)){
 					count4++;
 					risp=risp+x[i].toString();
@@ -385,7 +385,7 @@ public class Filters {
 					}
 				}				
 			}
-			else if(x[i].isCity(CityName5)){
+			if(x[i].isCity(CityName5)){
 				if(x[i].isLang(Lang)){
 					count5++;
 					risp=risp+x[i].toString();
@@ -431,13 +431,16 @@ public class Filters {
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
-					if(IsRemote.equals("true")){					
-						count++;
-						risp = risp + x[i].toString()+"\n";												
-						}
-					else {
+					if(IsRemote.equals("true")){
+						if(x[i].isRemote()) {
 						count++;
 						risp = risp + x[i].toString()+"\n";	
+						}
+					} else {
+						if(!x[i].isRemote()) {
+						count++;
+						risp = risp + x[i].toString()+"\n";	
+						}
 					}									
 				}				
 			}
@@ -477,25 +480,31 @@ public class Filters {
 		for(int i=0;i<x.length;i++) {
 			if(x[i].isCity(CityName)){
 				if(x[i].isLang(Lang)){
-					if(IsRemote.equals("true")){					
+					if(IsRemote.equals("true")){
+						if(x[i].isRemote()) {
 						count1++;
 						risp = risp + x[i].toString()+"\n";													
 						}
-					else {
+					} else {
+						if(!x[i].isRemote()) {
 						count1++;
 						risp = risp + x[i].toString()+"\n";	
+						}
 					}									
 				}				
 			}
 			if(x[i].isCity(CityName2)){
 				if(x[i].isLang(Lang)){
-					if(IsRemote.equals("true")){					
+					if(IsRemote.equals("true")){
+						if(x[i].isRemote()) {
 						count2++;
 						risp = risp + x[i].toString()+"\n";													
 						}
-					else {
+					} else {
+						if(!x[i].isRemote()) {
 						count2++;
 						risp = risp + x[i].toString()+"\n";	
+						}
 					}									
 				}				
 			}
@@ -538,37 +547,46 @@ public class Filters {
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName2)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){	
+					if(x[i].isRemote()) {
 					count2++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count2++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName3)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count3++;
 					risp = risp + x[i].toString()+"\n";												
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count3++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
@@ -614,49 +632,61 @@ public class Filters {
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName2)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count2++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count2++;
-					risp = risp + x[i].toString()+"\n";	
+					risp = risp + x[i].toString()+"\n";
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName3)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count3++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count3++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName4)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){	
+					if(x[i].isRemote()) {
 					count4++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count4++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
@@ -703,61 +733,76 @@ public class Filters {
 	for(int i=0;i<x.length;i++) {
 		if(x[i].isCity(CityName)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count1++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName2)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count2++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count2++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName3)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count3++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count3++;
-					risp = risp + x[i].toString()+"\n";	
+					risp = risp + x[i].toString()+"\n";
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName4)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count4++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count4++;
-					risp = risp + x[i].toString()+"\n";	
+					risp = risp + x[i].toString()+"\n";
+					}
 				}									
 			}				
 		}
 		if(x[i].isCity(CityName5)){
 			if(x[i].isLang(Lang)){
-				if(IsRemote.equals("true")){					
+				if(IsRemote.equals("true")){
+					if(x[i].isRemote()) {
 					count5++;
 					risp = risp + x[i].toString()+"\n";													
 					}
-				else {
+				} else {
+					if(!x[i].isRemote()) {
 					count5++;
 					risp = risp + x[i].toString()+"\n";	
+					}
 				}									
 			}				
 		}		

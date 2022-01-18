@@ -72,5 +72,4 @@ public class parseData {
 		}
 		return x;
 	}
-
 }

@@ -1,5 +1,6 @@
 package it.progetto.FIndJobs.service;
 
+import java.lang.RuntimeException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -65,7 +66,9 @@ public class DownloadData {
 					  }
 			}
 			
-		}  catch (Exception e) {
+		}	catch (RuntimeException e) {
+			System.out.println("Errore dato dalla pagina web. Ultima pagina non caricata. Continua ad utilizzare il programma.");
+		}	catch (Exception e) {
     	 	e.printStackTrace();
      	}
 		return Data;
@@ -95,11 +98,12 @@ public class DownloadData {
 	        } else {
 	        	Data = getData(Data, urlConn, countPag);
 	        }
-		}  catch (Exception e) {
+		}  	catch (RuntimeException e) {
+			System.out.println("Errore dato dalla pagina web. Ultima pagina non caricata. Continua ad utilizzare il programma.");
+		}	catch (Exception e) {
     	 	e.printStackTrace();
      	}
 		return Data;
 	}
-	
 	
 }

@@ -307,8 +307,5 @@ public class Scanner {
 		String ListaLavori=Filters.FilteredSearch10(lavori, Lang, CityName, CityName2, CityName3,
 				CityName4,CityName5,IsRemote.toLowerCase());
 		return ListaLavori;
-		
 	}
-	
-	
 }

@@ -201,10 +201,3 @@ Tutto questo assieme a delle statistiche che conterranno dei dati riassuntivi su
 <a name="doc"></a>
 ## Documentazione
 La nostra applicazione è interamente documentata in Javadoc. Troverete i vari file html all'interno del progetto. 
-
-<a name="autor"></a>
-## Autori del progetto :computer:
-Nome  | Contributo
----- | ----
-[Leonardo Pescetti](https://github.com/leopes99) | 50%
-[Claudio Tomaiuolo](https://github.com/S1078475) | 50%
